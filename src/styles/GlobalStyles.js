@@ -1,9 +1,9 @@
 import "modern-normalize";
 
-import { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
-@font-face {
+  @font-face {
     font-family: 'Gilroy';
     src: local('Gilroy Medium'), local('Gilroy-Medium'),
         url('Gilroy-Medium.woff2') format('woff2'),
@@ -23,7 +23,6 @@ export const GlobalStyles = createGlobalStyle`
     font-style: normal;
   }
 
-  
   * {
     box-sizing: border-box;
   }
@@ -63,20 +62,13 @@ export const GlobalStyles = createGlobalStyle`
     color: inherit;
   }
 
-  ul,
-  ol {
+  ul, ol {
     margin: 0;
     padding: 0;
     list-style: none;
   }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  p {
+  h1, h2, h3, h4, h5, h6, p {
     margin: 0;
   }
 
@@ -88,5 +80,26 @@ export const GlobalStyles = createGlobalStyle`
   button {
     background-color: transparent;
     cursor: pointer;
+  }
+`;
+
+export const Container = styled.div`
+  @media screen and (min-width: 320px) {
+    max-width: 100%;
+    padding: 0 20px;
+    margin: 0 auto;
+  }
+
+  @media screen and (min-width: 375px) {
+    max-width: 375px;
+  }
+
+  @media screen and (min-width: 768px) {
+    max-width: 768px;
+    padding: 0 32px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    max-width: 1280px;
   }
 `;

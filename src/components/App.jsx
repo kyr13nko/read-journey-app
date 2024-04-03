@@ -7,11 +7,10 @@ import Register from "../pages/Register/Register";
 const App = () => {
   return (
     <Routes>
-      <Route path="login" element={<Login />} />
-      <Route path="register" element={<Register />} />
-
       <Route path="/" element={<Layout />}>
-        {/* <Route index element={} /> */}
+        <Route index element={<div>No Data</div>} />
+        <Route path="login" element={<Login />} />
+        <Route path="register" element={<Register />} />
 
         <Route path="*" element={<Navigate to="/" />} />
       </Route>

@@ -1,8 +1,23 @@
+import { Suspense } from "react";
+import { Outlet } from "react-router-dom";
+
+import Header from "../Header";
+
+import { Container } from "../../styles/GlobalStyles";
 
 const Layout = () => {
   return (
-    <div>Layout</div>
-  )
-}
+    <>
+      <Header />
+      <main>
+        <Container>
+          <Suspense fallback={<div>Loading...</div>}>
+            <Outlet />
+          </Suspense>
+        </Container>
+      </main>
+    </>
+  );
+};
 
-export default Layout
+export default Layout;
