@@ -2,26 +2,28 @@ import "modern-normalize";
 
 import { createGlobalStyle } from "styled-components";
 
-import GilroyMedium from "../assets/fonts/Gilroy-Medium.ttf";
-import GilroyBold from "../assets/fonts/Gilroy-Bold.ttf";
-
 export const GlobalStyles = createGlobalStyle`
-  @font-face {
-    font-family: "Gilroy", sans-serif;
-    font-style: normal;
+@font-face {
+    font-family: 'Gilroy';
+    src: local('Gilroy Medium'), local('Gilroy-Medium'),
+        url('Gilroy-Medium.woff2') format('woff2'),
+        url('Gilroy-Medium.woff') format('woff'),
+        url('Gilroy-Medium.ttf') format('truetype');
     font-weight: 500;
-    /* src: url(${GilroyMedium}); */
-    src: url("../assets/fonts/Gilroy-Medium.ttf") format("truetype");
+    font-style: normal;
   }
 
   @font-face {
-    font-family: "Gilroy", sans-serif;
-    font-style: normal;
+    font-family: 'Gilroy';
+    src: local('Gilroy Bold'), local('Gilroy-Bold'),
+        url('Gilroy-Bold.woff2') format('woff2'),
+        url('Gilroy-Bold.woff') format('woff'),
+        url('Gilroy-Bold.ttf') format('truetype');
     font-weight: 700;
-    /* src: url(${GilroyBold}); */
-    src: url("../assets/fonts/Gilroy-Bold.ttf") format("truetype");
+    font-style: normal;
   }
 
+  
   * {
     box-sizing: border-box;
   }
@@ -44,7 +46,6 @@ export const GlobalStyles = createGlobalStyle`
 
   body {
     font-family: "Gilroy";
-    /* font-family: "Gilroy", sans-serif; */
     font-weight: 500;
     font-optical-sizing: auto;
     margin: 0;
