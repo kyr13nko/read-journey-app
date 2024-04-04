@@ -33,6 +33,7 @@ export const GlobalStyles = createGlobalStyle`
 
     --color-text: #f9f9f9;
     --color-text-dark: #686868;
+    --color-text-50: rgba(227, 227, 227, 0.5);
 
     --color-1: #262626;
     --color-2: rgba(227, 227, 227, 0.3);
@@ -86,7 +87,7 @@ export const GlobalStyles = createGlobalStyle`
 export const Container = styled.div`
   @media screen and (min-width: 320px) {
     max-width: 100%;
-    padding: 0 20px;
+    padding: 20px 20px;
     margin: 0 auto;
   }
 
@@ -96,7 +97,7 @@ export const Container = styled.div`
 
   @media screen and (min-width: 768px) {
     max-width: 768px;
-    padding: 0 32px;
+    padding: 32px 32px;
   }
 
   @media screen and (min-width: 1440px) {
