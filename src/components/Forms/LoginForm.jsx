@@ -1,4 +1,7 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+
+import { login } from "../../store/auth/authOperations";
 
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -7,6 +10,7 @@ import sprite from "../../assets/images/sprite.svg";
 import { StyledLink } from "./Forms.styled";
 
 const LoginForm = () => {
+  const dispatch = useDispatch();
   const [passVisible, setPassVisible] = useState(false);
 
   const handleClickPassVisible = () => setPassVisible(!passVisible);
@@ -20,7 +24,6 @@ const LoginForm = () => {
 
   const formik = useFormik({
     initialValues: {
-      name: "",
       email: "",
       password: "",
     },
@@ -29,6 +32,8 @@ const LoginForm = () => {
       const { email, password } = values;
       try {
         console.log("email, password", email, password);
+
+        dispatch(login({ email, password }));
         resetForm();
       } catch (error) {
         console.error(error);
