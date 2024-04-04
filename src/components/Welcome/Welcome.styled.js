@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import iphoneMobileSvg from "../../assets/images/iphone.svg";
+import iphoneMobileSvg from "../../assets/images/iphone-mobile.svg";
 import iphoneLaptopSvg from "../../assets/images/iphone-laptop.svg";
 
 export const WelcomeSection = styled.section`
