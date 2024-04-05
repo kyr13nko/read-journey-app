@@ -63,13 +63,15 @@ export const Input = styled.input`
 
   outline: none;
   border: 1px solid transparent;
+
   border-radius: 12px;
 
   padding: 14px;
 
   transition: var(--transition);
 
-  &:hover {
+  &:hover,
+  &:focus {
     border: 1px solid var(--color-border-hover);
   }
 
