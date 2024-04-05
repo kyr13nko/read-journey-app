@@ -7,7 +7,17 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 
 import sprite from "../../assets/images/sprite.svg";
-import { StyledLink } from "./Forms.styled";
+import {
+  Button,
+  ButtonWrapper,
+  Form,
+  Input,
+  InputWrapper,
+  Label,
+  PassSvg,
+  StyledLink,
+  Wrapper,
+} from "./Forms.styled";
 
 const LoginForm = () => {
   const dispatch = useDispatch();
@@ -41,38 +51,36 @@ const LoginForm = () => {
     },
   });
 
+  const { handleSubmit, handleChange, values, touched, errors } = formik;
+
   return (
-    <form onSubmit={formik.handleSubmit}>
-      <div>
-        <input
-          type="email"
-          name="email"
-          placeholder="Mail"
-          onChange={formik.handleChange}
-          value={formik.values.email}
-        />
-        {formik.touched.email && formik.errors.email ? <div>{formik.errors.email}</div> : null}
-      </div>
-      <div>
-        <input
-          type={passVisible ? "text" : "password"}
-          name="password"
-          placeholder="Password"
-          onChange={formik.handleChange}
-          value={formik.values.password}
-        />
-        <svg onClick={handleClickPassVisible}>
-          {passVisible ? <use href={`${sprite}#eye`} /> : <use href={`${sprite}#eye-off`} />}
-        </svg>
-        {formik.touched.password && formik.errors.password ? (
-          <div>{formik.errors.password}</div>
-        ) : null}
-      </div>
-      <div>
-        <button type="submit">Log In</button>
+    <Form onSubmit={handleSubmit}>
+      <Wrapper>
+        <InputWrapper>
+          <Label>Mail:</Label>
+          <Input type="email" name="email" onChange={handleChange} value={values.email} />
+          {touched.email && errors.email ? <div>{errors.email}</div> : null}
+        </InputWrapper>
+        <InputWrapper>
+          <Label>Password:</Label>
+          <Input
+            type={passVisible ? "text" : "password"}
+            name="password"
+            onChange={handleChange}
+            value={values.password}
+          />
+          <PassSvg onClick={handleClickPassVisible}>
+            {passVisible ? <use href={`${sprite}#eye`} /> : <use href={`${sprite}#eye-off`} />}
+          </PassSvg>
+          {touched.password && errors.password ? <div>{errors.password}</div> : null}
+        </InputWrapper>
+      </Wrapper>
+
+      <ButtonWrapper>
+        <Button type="submit">Log In</Button>
         <StyledLink to="/register">Don’t have an account?</StyledLink>
-      </div>
-    </form>
+      </ButtonWrapper>
+    </Form>
   );
 };
 

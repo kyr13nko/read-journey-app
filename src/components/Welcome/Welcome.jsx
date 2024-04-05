@@ -13,7 +13,7 @@ const Welcome = ({ children }) => {
             <Title>
               Expand your mind, reading <span>a book</span>
             </Title>
-            <div>{children}</div>
+            {children}
           </HeroContent>
           <HeroImage />
         </WelcomeSection>

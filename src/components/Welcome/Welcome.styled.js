@@ -27,7 +27,7 @@ const Hero = styled.div`
   padding: 1.25rem 1.25rem 2.5rem;
 
   @media screen and (min-width: 768px) {
-    padding: 40px 168px 40px 64px;
+    padding: 40px 168px 120px 64px;
   }
 
   @media screen and (min-width: 1440px) {

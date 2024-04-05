@@ -27,10 +27,13 @@ export const GlobalStyles = createGlobalStyle`
     --color-text: #f9f9f9;
     --color-text-dark: #686868;
     --color-text-50: rgba(227, 227, 227, 0.5);
+    --color-border-hover: rgba(249, 249, 249, 0.2);
+    
 
     --color-2: rgba(227, 227, 227, 0.3);
 
     --color-green: #30b94d;
+    --color-red: #e90516;
     --color-blue: #4f92f7;
 
     --transition: all 400ms ease;
