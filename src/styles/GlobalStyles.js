@@ -63,11 +63,11 @@ export const GlobalStyles = createGlobalStyle`
 
   #root {
     @media screen and (min-width: 320px) {
-      padding: 20px 0;
+      padding: 1.25rem 0;
     }
 
     @media screen and (min-width: 768px) {
-      padding: 32px 0;
+      padding: 2rem 0;
     }
   }
 
@@ -100,20 +100,20 @@ export const GlobalStyles = createGlobalStyle`
 export const Container = styled.div`
   @media screen and (min-width: 320px) {
     max-width: 100%;
-    padding: 0 20px;
+    padding: 0 1.25rem;
     margin: 0 auto;
   }
 
   @media screen and (min-width: 375px) {
-    max-width: 375px;
+    max-width: 23.4375rem;
   }
 
   @media screen and (min-width: 768px) {
-    max-width: 768px;
-    padding: 0 32px;
+    max-width: 48rem;
+    padding: 0 2rem;
   }
 
   @media screen and (min-width: 1440px) {
-    max-width: 1280px;
+    max-width: 80rem;
   }
 `;

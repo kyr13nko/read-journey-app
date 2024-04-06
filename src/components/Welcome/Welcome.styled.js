@@ -18,7 +18,7 @@ const Hero = styled.div`
   width: 100%;
   flex: 1;
 
-  min-width: 280px;
+  min-width: 17.5rem;
 
   border-radius: 1.875rem;
 
@@ -27,11 +27,11 @@ const Hero = styled.div`
   padding: 1.25rem 1.25rem 2.5rem;
 
   @media screen and (min-width: 768px) {
-    padding: 40px 168px 120px 64px;
+    padding: 2.5rem 10.5rem 7.5rem 4rem;
   }
 
   @media screen and (min-width: 1440px) {
-    padding: 40px 64px;
+    padding: 2.5rem 4rem;
   }
 `;
 
@@ -40,17 +40,17 @@ export const HeroContent = styled(Hero)`
   flex-direction: column;
   gap: 1.25rem;
 
-  min-height: 411px;
+  min-height: 25.6875rem;
 
   @media screen and (min-width: 768px) {
     gap: 2.5rem;
 
-    min-height: calc(100vh - 2 * 32px);
+    min-height: calc(100vh - 2 * 2rem);
   }
 `;
 
 export const HeroImage = styled(Hero)`
-  min-height: 351px;
+  min-height: 21.9375rem;
 
   background-image: url(${iphoneMobileSvg});
   background-position: center bottom;
@@ -72,19 +72,18 @@ export const Title = styled.h1`
   font-size: 2rem;
   line-height: 100%;
   letter-spacing: 0.02em;
-  color: #f9f9f9;
 
   @media screen and (min-width: 768px) {
-    max-width: 444px;
+    max-width: 27.75rem;
 
     font-size: 4rem;
     line-height: 94%;
 
-    margin-top: 117px;
+    margin-top: 7.3125rem;
   }
 
   @media screen and (min-width: 1440px) {
-    margin-top: 67px;
+    margin-top: 4.1875rem;
   }
 
   & span {

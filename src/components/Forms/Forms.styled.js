@@ -5,7 +5,7 @@ export const Form = styled.form`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 20px;
+  gap: 1.25rem;
   flex-grow: 1;
 
   height: 100%;
@@ -14,10 +14,10 @@ export const Form = styled.form`
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 0.5rem;
 
   @media screen and (min-width: 768px) {
-    gap: 14px;
+    gap: 0.875rem;
   }
 `;
 
@@ -27,26 +27,26 @@ export const InputWrapper = styled.div`
 
 export const Label = styled.span`
   position: absolute;
-  top: 16px;
-  left: 16px;
+  top: 1rem;
+  left: 1rem;
 
-  width: 18px;
-  height: 18px;
+  width: 1.125rem;
+  height: 1.125rem;
 
-  font-size: 12px;
+  font-size: 0.75rem;
   line-height: 133%;
   letter-spacing: -0.02em;
 
   color: var(--color-text-dark);
 
   @media screen and (min-width: 768px) {
-    top: 18px;
-    left: 18px;
+    top: 1.125rem;
+    left: 1.125rem;
 
-    width: 20px;
-    height: 20px;
+    width: 1.25rem;
+    height: 1.25rem;
 
-    font-size: 14px;
+    font-size: 0.875rem;
     line-height: 129%;
   }
 `;
@@ -54,7 +54,7 @@ export const Label = styled.span`
 export const Input = styled.input`
   width: 100%;
 
-  font-size: 12px;
+  font-size: 0.75rem;
   line-height: 133%;
   letter-spacing: -0.02em;
   color: var(--color-text);
@@ -64,9 +64,9 @@ export const Input = styled.input`
   outline: none;
   border: 1px solid transparent;
 
-  border-radius: 12px;
+  border-radius: 0.75rem;
 
-  padding: 14px;
+  padding: 0.875rem;
 
   transition: var(--transition);
 
@@ -76,67 +76,67 @@ export const Input = styled.input`
   }
 
   &[id="name"] {
-    padding-left: 58px;
+    padding-left: 3.625rem;
   }
 
   &[id="email"] {
-    padding-left: 46px;
+    padding-left: 2.875rem;
   }
 
   &[id="password"] {
-    padding-left: 78px;
+    padding-left: 4.875rem;
   }
 
   @media screen and (min-width: 768px) {
-    font-size: 14px;
+    font-size: 0.875rem;
     line-height: 129%;
 
-    padding: 16px 14px;
+    padding: 1rem 0.875rem;
 
     &[id="name"] {
-      padding-left: 68px;
+      padding-left: 4.25rem;
     }
 
     &[id="email"] {
-      padding-left: 56px;
+      padding-left: 3.5rem;
     }
 
     &[id="password"] {
-      padding-left: 90px;
+      padding-left: 5.625rem;
     }
   }
 `;
 
 export const PassSvg = styled.svg`
   position: absolute;
-  top: 15px;
-  right: 16px;
+  top: 0.9375rem;
+  right: 1rem;
 
-  width: 18px;
-  height: 18px;
+  width: 1.125rem;
+  height: 1.125rem;
 
   @media screen and (min-width: 768px) {
-    top: 16px;
-    right: 18px;
+    top: 1rem;
+    right: 1.125rem;
 
-    width: 20px;
-    height: 20px;
+    width: 1.25rem;
+    height: 1.25rem;
   }
 `;
 
 export const ButtonWrapper = styled.div`
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 0.875rem;
 
   @media screen and (min-width: 768px) {
-    gap: 20px;
+    gap: 1.25rem;
   }
 `;
 
 export const Button = styled.button`
   font-weight: 700;
-  font-size: 14px;
+  font-size: 0.875rem;
   line-height: 129%;
   letter-spacing: 0.02em;
 
@@ -144,9 +144,9 @@ export const Button = styled.button`
   background-color: var(--color-text);
 
   border: 1px solid transparent;
-  border-radius: 30px;
+  border-radius: 1.875rem;
 
-  padding: 12px 28px;
+  padding: 0.75rem 1.75rem;
 
   transition: var(--transition);
 
@@ -158,10 +158,10 @@ export const Button = styled.button`
   }
 
   @media screen and (min-width: 768px) {
-    font-size: 20px;
+    font-size: 1.25rem;
     line-height: 100%;
 
-    padding: 16px 54px;
+    padding: 1rem 3.375rem;
   }
 `;
 
