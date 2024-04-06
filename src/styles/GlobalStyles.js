@@ -9,6 +9,7 @@ export const GlobalStyles = createGlobalStyle`
       url("Gilroy-Medium.woff") format("woff"), url("Gilroy-Medium.ttf") format("truetype");
     font-weight: 500;
     font-style: normal;
+    -webkit-font-smoothing: antialiased;
   }
 
   @font-face {
@@ -17,6 +18,7 @@ export const GlobalStyles = createGlobalStyle`
       url("Gilroy-Bold.woff") format("woff"), url("Gilroy-Bold.ttf") format("truetype");
     font-weight: 700;
     font-style: normal;
+    -webkit-font-smoothing: antialiased;
   }
 
   :root {
