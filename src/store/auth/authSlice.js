@@ -1,12 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-import { login, register } from "./authOperations";
+import persistReducer from "redux-persist/es/persistReducer";
+import storage from "redux-persist/lib/storage";
+
+import { login, refresh, register } from "./authOperations";
 
 const initialState = {
   user: { name: null, email: null },
-  token: null,
-  isLoggedIn: false,
+  isLogin: false,
   isRefreshing: false,
+  token: null,
 };
 
 const authSlice = createSlice({
@@ -14,15 +17,38 @@ const authSlice = createSlice({
   initialState,
   extraReducers: (builder) => {
     builder
-      .addCase(register.fulfilled, (state, action) => {
-        console.log("state", state);
-        console.log("action", action);
+      .addCase(register.fulfilled, (state, { payload }) => {
+        console.log("payload", payload);
+        state.user = { name: payload.name, email: payload.email };
+        state.token = payload.token;
+        state.isLogin = true;
       })
-      .addCase(login.fulfilled, (state, action) => {
-        console.log("state", state);
-        console.log("action", action);
+
+      .addCase(login.fulfilled, (state, { payload }) => {
+        console.log("payload", payload);
+        state.user = { name: payload.name, email: payload.email };
+        state.token = payload.token;
+        state.isLogin = true;
+      })
+
+      .addCase(refresh.pending, (state) => {
+        state.isRefreshing = true;
+      })
+      .addCase(refresh.fulfilled, (state, { payload }) => {
+        state.user = { name: payload.name, email: payload.email };
+        state.isLogin = true;
+        state.isRefreshing = false;
+      })
+      .addCase(refresh.rejected, (state) => {
+        state.isRefreshing = false;
       });
   },
 });
 
-export const authReducer = authSlice.reducer;
+const authConfig = {
+  key: "auth",
+  storage,
+  whitelist: ["token"],
+};
+
+export const authReducer = persistReducer(authConfig, authSlice.reducer);

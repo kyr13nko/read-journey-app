@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 
-import { login } from "../../store/auth/authOperations";
-
 import { useFormik } from "formik";
-import * as Yup from "yup";
+
+import { loginSchema } from "../../helpers/schemas";
+import { login } from "../../store/auth/authOperations";
 
 import sprite from "../../assets/images/sprite.svg";
 import {
@@ -21,28 +21,19 @@ import {
 
 const LoginForm = () => {
   const dispatch = useDispatch();
+
   const [passVisible, setPassVisible] = useState(false);
-
   const handleClickPassVisible = () => setPassVisible(!passVisible);
-
-  const validationSchema = Yup.object().shape({
-    email: Yup.string().email("Invalid email").required("Email is required"),
-    password: Yup.string()
-      .min(7, "Password must be at least 7 characters")
-      .required("Password is required"),
-  });
 
   const formik = useFormik({
     initialValues: {
       email: "",
       password: "",
     },
-    validationSchema,
+    validationSchema: loginSchema,
     onSubmit: async (values, { resetForm }) => {
       const { email, password } = values;
       try {
-        console.log("email, password", email, password);
-
         dispatch(login({ email, password }));
         resetForm();
       } catch (error) {
@@ -58,12 +49,19 @@ const LoginForm = () => {
       <Wrapper>
         <InputWrapper>
           <Label>Mail:</Label>
-          <Input type="email" name="email" onChange={handleChange} value={values.email} />
+          <Input
+            id="email"
+            type="email"
+            name="email"
+            onChange={handleChange}
+            value={values.email}
+          />
           {touched.email && errors.email ? <div>{errors.email}</div> : null}
         </InputWrapper>
         <InputWrapper>
           <Label>Password:</Label>
           <Input
+            id="password"
             type={passVisible ? "text" : "password"}
             name="password"
             onChange={handleChange}

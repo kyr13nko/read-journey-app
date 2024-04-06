@@ -1,7 +1,10 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 
 import { useFormik } from "formik";
-import * as Yup from "yup";
+
+import { registerSchema } from "../../helpers/schemas";
+import { register } from "../../store/auth/authOperations";
 
 import sprite from "../../assets/images/sprite.svg";
 import {
@@ -17,17 +20,10 @@ import {
 } from "./Forms.styled";
 
 const RegisterForm = () => {
+  const dispatch = useDispatch();
+
   const [passVisible, setPassVisible] = useState(false);
-
   const handleClickPassVisible = () => setPassVisible(!passVisible);
-
-  const validationSchema = Yup.object().shape({
-    name: Yup.string().required("Name is required"),
-    email: Yup.string().email("Invalid email").required("Email is required"),
-    password: Yup.string()
-      .min(7, "Password must be at least 7 characters")
-      .required("Password is required"),
-  });
 
   const formik = useFormik({
     initialValues: {
@@ -35,11 +31,11 @@ const RegisterForm = () => {
       email: "",
       password: "",
     },
-    validationSchema,
+    validationSchema: registerSchema,
     onSubmit: async (values, { resetForm }) => {
       const { name, email, password } = values;
       try {
-        console.log("name, email, password", name, email, password);
+        dispatch(register({ name, email, password }));
         resetForm();
       } catch (error) {
         console.error(error);
