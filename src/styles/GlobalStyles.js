@@ -9,7 +9,6 @@ export const GlobalStyles = createGlobalStyle`
       url("Gilroy-Medium.woff") format("woff"), url("Gilroy-Medium.ttf") format("truetype");
     font-weight: 500;
     font-style: normal;
-    -webkit-font-smoothing: antialiased;
   }
 
   @font-face {
@@ -18,7 +17,6 @@ export const GlobalStyles = createGlobalStyle`
       url("Gilroy-Bold.woff") format("woff"), url("Gilroy-Bold.ttf") format("truetype");
     font-weight: 700;
     font-style: normal;
-    -webkit-font-smoothing: antialiased;
   }
 
   :root {
@@ -42,17 +40,25 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   body {
-    font-family: "Gilroy";
+    font-family: -apple-system, BlinkMacSystemFont, "Gilroy", sans-serif;
     font-weight: 500;
     font-optical-sizing: auto;
     margin: 0;
 
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 
     background-color: var(--color-bg);
     color: var(--color-text);
 
     min-height: 100vh;
+
+  
+  }
+
+  code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
   }
 
   #root {
