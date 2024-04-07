@@ -10,12 +10,15 @@ import sprite from "../../assets/images/sprite.svg";
 import {
   Button,
   ButtonWrapper,
+  Error,
   Form,
   Input,
   InputWrapper,
   Label,
+  MessageSvg,
   PassSvg,
   StyledLink,
+  Success,
   Wrapper,
 } from "./Forms.styled";
 
@@ -42,7 +45,7 @@ const LoginForm = () => {
     },
   });
 
-  const { handleSubmit, handleChange, values, touched, errors } = formik;
+  const { handleSubmit, handleChange, handleBlur, values, touched, errors } = formik;
 
   return (
     <Form onSubmit={handleSubmit}>
@@ -54,9 +57,33 @@ const LoginForm = () => {
             type="email"
             name="email"
             onChange={handleChange}
+            onBlur={handleBlur}
             value={values.email}
+            style={{
+              borderColor:
+                touched.email && errors.email
+                  ? "var(--color-red)"
+                  : touched.email && !errors.email
+                  ? "var(--color-green)"
+                  : "transparent",
+            }}
           />
-          {touched.email && errors.email ? <div>{errors.email}</div> : null}
+
+          {touched.email && errors.email ? (
+            <MessageSvg>
+              <use href={`${sprite}#error`} />
+            </MessageSvg>
+          ) : touched.email && !errors.email ? (
+            <MessageSvg>
+              <use href={`${sprite}#success`} />
+            </MessageSvg>
+          ) : null}
+
+          {touched.email && errors.email ? (
+            <Error>{errors.email}</Error>
+          ) : (
+            touched.email && <Success>Email is correct!</Success>
+          )}
         </InputWrapper>
         <InputWrapper>
           <Label>Password:</Label>
@@ -65,12 +92,37 @@ const LoginForm = () => {
             type={passVisible ? "text" : "password"}
             name="password"
             onChange={handleChange}
+            onBlur={handleBlur}
             value={values.password}
+            style={{
+              borderColor:
+                touched.password && errors.password
+                  ? "var(--color-red)"
+                  : touched.password && !errors.password
+                  ? "var(--color-green)"
+                  : "transparent",
+            }}
           />
+
+          {touched.password && errors.password ? (
+            <MessageSvg>
+              <use href={`${sprite}#error`} />
+            </MessageSvg>
+          ) : touched.password && !errors.password ? (
+            <MessageSvg>
+              <use href={`${sprite}#success`} />
+            </MessageSvg>
+          ) : null}
+
           <PassSvg onClick={handleClickPassVisible}>
             {passVisible ? <use href={`${sprite}#eye`} /> : <use href={`${sprite}#eye-off`} />}
           </PassSvg>
-          {touched.password && errors.password ? <div>{errors.password}</div> : null}
+
+          {touched.password && errors.password ? (
+            <Error>{errors.password}</Error>
+          ) : (
+            touched.password && <Success>Password is secure!</Success>
+          )}
         </InputWrapper>
       </Wrapper>
 
