@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { lazy, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Navigate, Route, Routes } from "react-router-dom";
 
@@ -9,8 +9,9 @@ import { refresh } from "../store/auth/authOperations";
 import { useAuth } from "../hooks/useAuth";
 
 import Layout from "./Layout/Layout";
-import Login from "../pages/Login/Login";
-import Register from "../pages/Register/Register";
+
+const Login = lazy(() => import("../pages/Login/Login"));
+const Register = lazy(() => import("../pages/Register/Register"));
 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";

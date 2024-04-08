@@ -18,14 +18,12 @@ const authSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(register.fulfilled, (state, { payload }) => {
-        console.log("payload", payload);
         state.user = { name: payload.name, email: payload.email };
         state.token = payload.token;
         state.isLogin = true;
       })
 
       .addCase(login.fulfilled, (state, { payload }) => {
-        console.log("payload", payload);
         state.user = { name: payload.name, email: payload.email };
         state.token = payload.token;
         state.isLogin = true;
