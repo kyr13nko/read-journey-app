@@ -85,6 +85,7 @@ export const Input = styled.input`
 
   &[id="password"] {
     padding-left: 4.875rem;
+    padding-right: 4.875rem;
   }
 
   @media screen and (min-width: 768px) {
@@ -103,6 +104,7 @@ export const Input = styled.input`
 
     &[id="password"] {
       padding-left: 5.625rem;
+      padding-right: 5.625rem;
     }
   }
 `;
@@ -110,14 +112,14 @@ export const Input = styled.input`
 export const PassSvg = styled.svg`
   position: absolute;
   top: 0.9375rem;
-  right: 1rem;
+  right: 3.125rem;
 
   width: 1.125rem;
   height: 1.125rem;
 
   @media screen and (min-width: 768px) {
     top: 1rem;
-    right: 1.125rem;
+    right: 3.5rem;
 
     width: 1.25rem;
     height: 1.25rem;

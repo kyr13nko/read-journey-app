@@ -114,9 +114,11 @@ const LoginForm = () => {
             </MessageSvg>
           ) : null}
 
-          <PassSvg onClick={handleClickPassVisible}>
-            {passVisible ? <use href={`${sprite}#eye`} /> : <use href={`${sprite}#eye-off`} />}
-          </PassSvg>
+          {values.password ? (
+            <PassSvg onClick={handleClickPassVisible}>
+              {passVisible ? <use href={`${sprite}#eye`} /> : <use href={`${sprite}#eye-off`} />}
+            </PassSvg>
+          ) : null}
 
           {touched.password && errors.password ? (
             <Error>{errors.password}</Error>
