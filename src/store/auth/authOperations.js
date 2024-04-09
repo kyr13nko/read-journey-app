@@ -8,9 +8,9 @@ const setAuthHeader = (token) => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
-// const clearAuthHeader = () => {
-//   axios.defaults.headers.common.Authorization = "";
-// };
+const clearAuthHeader = () => {
+  axios.defaults.headers.common.Authorization = "";
+};
 
 export const register = createAsyncThunk("auth/register", async (values, { rejectWithValue }) => {
   try {
@@ -30,6 +30,16 @@ export const login = createAsyncThunk("auth/login", async (values, { rejectWithV
     setAuthHeader(data.token);
     toast.success(`Welcome, ${data.name}`);
     return data;
+  } catch (error) {
+    if (error) toast.error(error.response.data.message);
+    return rejectWithValue(error.response);
+  }
+});
+
+export const logout = createAsyncThunk("auth/logout", async (_, { rejectWithValue }) => {
+  try {
+    await axios.post("/users/signout");
+    clearAuthHeader();
   } catch (error) {
     if (error) toast.error(error.response.data.message);
     return rejectWithValue(error.response);
