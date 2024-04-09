@@ -1,11 +1,11 @@
 import RegisterForm from "../../components/Forms/RegisterForm";
-import Welcome from "../../components/Welcome/Welcome";
+import Home from "../../components/Home/Home";
 
 const Register = () => {
   return (
-    <Welcome>
+    <Home>
       <RegisterForm />
-    </Welcome>
+    </Home>
   );
 };
 

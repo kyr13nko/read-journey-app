@@ -3,7 +3,7 @@ import styled from "styled-components";
 import iphoneMobileSvg from "../../assets/images/iphone-mobile.svg";
 import iphoneLaptopSvg from "../../assets/images/iphone-laptop.svg";
 
-export const WelcomeSection = styled.section`
+export const HomeSection = styled.section`
   display: flex;
   flex-direction: column;
   gap: 0.625rem;

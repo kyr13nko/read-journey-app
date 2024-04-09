@@ -1,13 +1,13 @@
 import Logotype from "../Header/Logotype/Logotype";
 
-import { HeroContent, HeroImage, Title, WelcomeSection } from "./Welcome.styled";
+import { HeroContent, HeroImage, Title, HomeSection } from "./Home.styled";
 import { Container } from "../../styles/GlobalStyles";
 
-const Welcome = ({ children }) => {
+const Home = ({ children }) => {
   return (
     <main>
       <Container>
-        <WelcomeSection>
+        <HomeSection>
           <HeroContent>
             <Logotype />
             <Title>
@@ -16,10 +16,10 @@ const Welcome = ({ children }) => {
             {children}
           </HeroContent>
           <HeroImage />
-        </WelcomeSection>
+        </HomeSection>
       </Container>
     </main>
   );
 };
 
-export default Welcome;
+export default Home;
