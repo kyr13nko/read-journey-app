@@ -23,6 +23,8 @@ export const GlobalStyles = createGlobalStyle`
     --color-bg: #141414;
     --color-bg-el: #1f1f1f;
     --color-bg-item: #262626;
+    --color-overlay: rgba(20, 20, 20, 0.6);
+
 
     --color-text: #f9f9f9;
     --color-text-dark: #686868;
@@ -115,5 +117,47 @@ export const Container = styled.div`
 
   @media screen and (min-width: 1440px) {
     max-width: 80rem;
+  }
+`;
+
+export const Button = styled.button`
+  font-weight: 700;
+  font-size: 0.875rem;
+  line-height: 129%;
+  letter-spacing: 0.02em;
+  color: var(--color-text);
+
+  border: 1px solid var(--color-border-hover);
+  border-radius: 1.875rem;
+
+  transition: var(--transition);
+
+  &:hover {
+    color: var(--color-bg-el);
+    background-color: var(--color-text);
+
+    border: 1px solid transparent;
+  }
+
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    line-height: 112%;
+  }
+`;
+
+export const SvgBtn = styled.button`
+  line-height: 0;
+
+  width: 1.75rem;
+  height: 1.75rem;
+
+  border: none;
+
+  margin: 0;
+  padding: 0;
+
+  & svg {
+    width: 100%;
+    height: 100%;
   }
 `;
