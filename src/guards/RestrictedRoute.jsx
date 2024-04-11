@@ -1,25 +1,9 @@
-import { Navigate } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
+import { Navigate, useLocation } from "react-router-dom";
 
-export const RestrictedRoute = ({ component: Component, redirectTo = "/" }) => {
+export const RestrictedRoute = ({ redirectTo, component: Component }) => {
+  const location = useLocation();
   const { isLogin } = useAuth();
 
-  return isLogin ? <Navigate to={redirectTo} /> : Component;
+  return isLogin ? <Navigate to={location.state?.from ?? redirectTo} /> : Component;
 };
-
-// import { Route, Navigate } from "react-router-dom";
-// import { useAuth } from "../hooks/useAuth";
-
-// const RestrictedRoute = ({ element: Element, redirectTo = "/", ...rest }) => {
-//   const { isLogin, isRefreshing } = useAuth();
-
-//   if (isRefreshing) {
-//     return <div>Refreshing...</div>;
-//   }
-
-//   return (
-//     <Route {...rest} element={!isLogin ? <Element /> : <Navigate to={redirectTo} replace />} />
-//   );
-// };
-
-// export default RestrictedRoute;

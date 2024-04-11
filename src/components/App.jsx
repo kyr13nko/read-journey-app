@@ -14,8 +14,6 @@ import { PrivateRoute } from "../guards/PrivateRoute";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
 
-const Welcome = lazy(() => import("../pages/Welcome/Welcome"));
-
 const Login = lazy(() => import("../pages/Login/Login"));
 const Register = lazy(() => import("../pages/Register/Register"));
 
@@ -24,7 +22,7 @@ const Library = lazy(() => import("../pages/Library/Library"));
 
 const App = () => {
   const dispatch = useDispatch();
-  const { isRefreshing } = useAuth();
+  const { isRefreshing, isLogin } = useAuth();
 
   useEffect(() => {
     dispatch(refresh());
@@ -36,24 +34,27 @@ const App = () => {
     <>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<Welcome />} />
-
           <Route
-            path="login"
-            element={<RestrictedRoute redirectTo="/recommended" component={<Login />} />}
+            index
+            element={isLogin ? <Navigate to="/recommended" /> : <Navigate to="/register" />}
           />
+
           <Route
             path="register"
-            element={<RestrictedRoute redirectTo="/recommended" component={<Register />} />}
+            element={<RestrictedRoute redirectTo={"/recommended"} component={<Register />} />}
+          />
+          <Route
+            path="login"
+            element={<RestrictedRoute redirectTo={"/recommended"} component={<Login />} />}
           />
 
           <Route
-            path="/recommended"
-            element={<PrivateRoute redirectTo="/register" component={<Recommended />} />}
+            path="library"
+            element={<PrivateRoute redirectTo="/register" component={<Library />} />}
           />
           <Route
-            path="/library"
-            element={<PrivateRoute redirectTo="/register" component={<Library />} />}
+            path="recommended"
+            element={<PrivateRoute redirectTo="/register" component={<Recommended />} />}
           />
 
           <Route path="*" element={<Navigate to="/" />} />
