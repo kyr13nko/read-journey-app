@@ -55,7 +55,23 @@ export const GlobalStyles = createGlobalStyle`
 
     min-height: 100vh;
 
-  
+    &::-webkit-scrollbar {
+      width: 0.25rem;
+    }
+    
+    &::-webkit-scrollbar-track {
+      background: var(--color-overlay);
+      border-radius: 0.5rem;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+      background: var(--color-text-dark); 
+      border-radius: 0.5rem;
+    }
+    
+    &::-webkit-scrollbar-thumb:hover {
+      background: var(--color-green); 
+    }  
   }
 
   code {

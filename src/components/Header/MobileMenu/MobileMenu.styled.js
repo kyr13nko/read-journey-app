@@ -35,7 +35,7 @@ export const MobileContainer = styled(Container)`
 
   transition: right 0.3s ease;
 
-  padding: 40px 54px 80px 54px;
+  padding: 2.5rem 3.375rem 5rem 3.375rem;
 `;
 
 export const CloseBtn = styled(SvgBtn)`

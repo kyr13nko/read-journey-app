@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { logout } from "../../../store/auth/authOperations";
 
@@ -10,6 +11,14 @@ import { LogoutBurgerButton } from "../index.styled";
 
 const MobileMenu = ({ isOpen, onClose }) => {
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow = "visible";
+    };
+  }, []);
 
   const handleLogout = () => {
     dispatch(logout());
