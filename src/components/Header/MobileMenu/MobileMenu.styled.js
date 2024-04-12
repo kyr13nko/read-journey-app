@@ -18,7 +18,7 @@ export const Overlay = styled.div`
 export const MobileContainer = styled(Container)`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   gap: 1.25rem;
 
@@ -35,7 +35,7 @@ export const MobileContainer = styled(Container)`
 
   transition: right 0.3s ease;
 
-  padding: 17.5rem 3.375rem 2.5rem;
+  padding: 40px 54px 80px 54px;
 `;
 
 export const CloseBtn = styled(SvgBtn)`

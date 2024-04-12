@@ -35,6 +35,9 @@ export const LogoutButton = styled(Button)`
 `;
 
 export const LogoutBurgerButton = styled(Button)`
+  position: absolute;
+  bottom: 2.5rem;
+
   padding: 0.625rem 1.25rem;
 `;
 
