@@ -140,7 +140,7 @@ export const Button = styled.button`
   }
 
   @media screen and (min-width: 768px) {
-    font-size: 16px;
+    font-size: 1rem;
     line-height: 112%;
   }
 `;

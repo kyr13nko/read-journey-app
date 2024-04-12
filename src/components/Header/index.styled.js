@@ -27,7 +27,7 @@ export const UserData = styled.div`
 `;
 
 export const LogoutButton = styled(Button)`
-  padding: 12px 28px;
+  padding: 0.75rem 1.75rem;
 
   @media screen and (max-width: 767px) {
     display: none;
@@ -35,20 +35,11 @@ export const LogoutButton = styled(Button)`
 `;
 
 export const LogoutBurgerButton = styled(Button)`
-  padding: 10px 20px;
+  padding: 0.625rem 1.25rem;
 `;
 
 export const BurgerBtn = styled(SvgBtn)`
   @media screen and (min-width: 768px) {
     display: none;
   }
-`;
-
-export const Overlay = styled.div`
-  position: fixed;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 10;
-  background-color: var(--color-overlay);
 `;
