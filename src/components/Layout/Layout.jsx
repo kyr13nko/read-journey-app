@@ -5,7 +5,7 @@ import { useAuth } from "../../hooks/useAuth";
 
 import Header from "../Header";
 
-import { Container } from "../../styles/GlobalStyles";
+import { Container, Section } from "../../styles/GlobalStyles";
 
 const Layout = () => {
   const { isLogin } = useAuth();
@@ -15,9 +15,11 @@ const Layout = () => {
       {isLogin && <Header />}
       <main>
         <Container>
-          <Suspense fallback={<div>Loading...</div>}>
-            <Outlet />
-          </Suspense>
+          <Section>
+            <Suspense fallback={<div>Loading...</div>}>
+              <Outlet />
+            </Suspense>
+          </Section>
         </Container>
       </main>
     </>

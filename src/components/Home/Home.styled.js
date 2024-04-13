@@ -3,17 +3,6 @@ import styled from "styled-components";
 import iphoneMobileSvg from "../../assets/images/iphone-mobile.svg";
 import iphoneLaptopSvg from "../../assets/images/iphone-laptop.svg";
 
-export const HomeSection = styled.section`
-  display: flex;
-  flex-direction: column;
-  gap: 0.625rem;
-
-  @media screen and (min-width: 1440px) {
-    flex-direction: row;
-    gap: 1rem;
-  }
-`;
-
 const Hero = styled.div`
   width: 100%;
   flex: 1;

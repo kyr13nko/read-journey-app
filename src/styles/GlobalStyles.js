@@ -136,6 +136,21 @@ export const Container = styled.div`
   }
 `;
 
+export const Section = styled.section`
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+
+  padding: 0.625rem 0 1.25rem;
+
+  @media screen and (min-width: 1440px) {
+    flex-direction: row;
+    gap: 1rem;
+
+    padding: 1rem 0 2rem;
+  }
+`;
+
 export const Button = styled.button`
   font-weight: 700;
   font-size: 0.875rem;

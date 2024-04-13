@@ -1,5 +1,13 @@
+import Dashboard from "../../components/Dashboard/Dashboard";
+import RecommendedBooks from "../../components/RecommendedBooks/RecommendedBooks";
+
 const Recommended = () => {
-  return <div>Recommended</div>;
+  return (
+    <>
+      <Dashboard />
+      <RecommendedBooks />
+    </>
+  );
 };
 
 export default Recommended;

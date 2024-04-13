@@ -13,12 +13,12 @@ const MobileMenu = ({ isOpen, onClose }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    document.body.style.overflow = "hidden";
+    if (isOpen) document.body.style.overflow = "hidden";
 
     return () => {
       document.body.style.overflow = "visible";
     };
-  }, []);
+  }, [isOpen]);
 
   const handleLogout = () => {
     dispatch(logout());
@@ -29,8 +29,8 @@ const MobileMenu = ({ isOpen, onClose }) => {
   };
 
   return (
-    <Overlay isOpen={isOpen} onClick={handleBackdropClick}>
-      <MobileContainer isOpen={isOpen}>
+    <Overlay $isOpen={isOpen} onClick={handleBackdropClick}>
+      <MobileContainer $isOpen={isOpen}>
         <CloseBtn type="button" onClick={onClose}>
           <svg>
             <use href={`${sprite}#close`} />

@@ -4,11 +4,12 @@ import { Container, SvgBtn } from "../../../styles/GlobalStyles";
 export const Overlay = styled.div`
   position: fixed;
   top: 0;
-  left: ${({ isOpen }) => (isOpen ? "0" : "-100%")};
+  left: ${({ $isOpen }) => ($isOpen ? "0" : "-100%")};
   z-index: 12;
 
   width: 100%;
-  height: 100vh;
+  height: 100%;
+  /* height: 100vh; */
 
   background-color: var(--color-overlay);
 
@@ -24,12 +25,13 @@ export const MobileContainer = styled(Container)`
 
   position: fixed;
   top: 0;
-  right: ${({ isOpen }) => (isOpen ? "0" : "-100%")};
+  right: ${({ $isOpen }) => ($isOpen ? "0" : "-100%")};
   z-index: 13;
 
   min-width: 12.5rem;
   width: 60%;
-  height: 100vh;
+  height: 100%;
+  /* height: 100vh; */
 
   background-color: var(--color-bg-item);
 

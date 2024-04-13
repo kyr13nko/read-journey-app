@@ -1,21 +1,19 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
+
+import {
+  authHeader,
+  fetchLogin,
+  fetchLogout,
+  fetchRefresh,
+  fetchRegister,
+} from "../../services/authAPI";
+
 import { toast } from "react-toastify";
-
-axios.defaults.baseURL = "https://readjourney.b.goit.study/api";
-
-const setAuthHeader = (token) => {
-  axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-};
-
-const clearAuthHeader = () => {
-  axios.defaults.headers.common.Authorization = "";
-};
 
 export const register = createAsyncThunk("auth/register", async (values, { rejectWithValue }) => {
   try {
-    const { data } = await axios.post("/users/signup", values);
-    setAuthHeader(data.token);
+    const { data } = await fetchRegister(values);
+    authHeader.set(data.token);
     toast.success(`Welcome, ${data.name}`);
     return data;
   } catch (error) {
@@ -26,8 +24,8 @@ export const register = createAsyncThunk("auth/register", async (values, { rejec
 
 export const login = createAsyncThunk("auth/login", async (values, { rejectWithValue }) => {
   try {
-    const { data } = await axios.post("/users/signin", values);
-    setAuthHeader(data.token);
+    const { data } = await fetchLogin(values);
+    authHeader.set(data.token);
     toast.success(`Welcome, ${data.name}`);
     return data;
   } catch (error) {
@@ -38,8 +36,8 @@ export const login = createAsyncThunk("auth/login", async (values, { rejectWithV
 
 export const logout = createAsyncThunk("auth/logout", async (_, { rejectWithValue }) => {
   try {
-    await axios.post("/users/signout");
-    clearAuthHeader();
+    await fetchLogout();
+    authHeader.clear();
   } catch (error) {
     if (error) toast.error(error.response.data.message);
     return rejectWithValue(error.response);
@@ -55,8 +53,8 @@ export const refresh = createAsyncThunk(
     if (persistedToken === null) return rejectWithValue("Unable to fetch user");
 
     try {
-      setAuthHeader(persistedToken);
-      const { data } = await axios.get("/users/current");
+      authHeader.set(persistedToken);
+      const { data } = await fetchRefresh();
 
       return data;
     } catch (error) {

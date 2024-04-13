@@ -1,10 +1,10 @@
 import Logotype from "../Header/Logotype/Logotype";
 
-import { HeroContent, HeroImage, Title, HomeSection } from "./Home.styled";
+import { HeroContent, HeroImage, Title } from "./Home.styled";
 
 const Home = ({ children }) => {
   return (
-    <HomeSection>
+    <>
       <HeroContent>
         <Logotype />
         <Title>
@@ -13,7 +13,7 @@ const Home = ({ children }) => {
         {children}
       </HeroContent>
       <HeroImage />
-    </HomeSection>
+    </>
   );
 };
 
