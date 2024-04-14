@@ -7,7 +7,7 @@ import UserNav from "../UserNav/UserNav";
 import sprite from "../../../assets/images/sprite.svg";
 
 import { CloseBtn, MobileContainer, Overlay } from "./MobileMenu.styled";
-import { LogoutBurgerButton } from "../index.styled";
+import { LogoutBurgerButton } from "../Header.styled";
 
 const MobileMenu = ({ isOpen, onClose }) => {
   const dispatch = useDispatch();

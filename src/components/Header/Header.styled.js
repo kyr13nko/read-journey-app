@@ -42,6 +42,9 @@ export const LogoutBurgerButton = styled(Button)`
 `;
 
 export const BurgerBtn = styled(SvgBtn)`
+  width: 1.75rem;
+  height: 1.75rem;
+
   @media screen and (min-width: 768px) {
     display: none;
   }

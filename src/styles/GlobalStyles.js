@@ -178,10 +178,6 @@ export const Button = styled.button`
 
 export const SvgBtn = styled.button`
   line-height: 0;
-
-  width: 1.75rem;
-  height: 1.75rem;
-
   border: none;
 
   margin: 0;

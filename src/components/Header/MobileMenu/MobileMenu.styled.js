@@ -43,4 +43,7 @@ export const CloseBtn = styled(SvgBtn)`
   position: absolute;
   top: 2.125rem;
   right: 2.5rem;
+
+  width: 1.75rem;
+  height: 1.75rem;
 `;

@@ -7,7 +7,7 @@ import UserBar from "./UserBar/UserBar";
 import sprite from "../../assets/images/sprite.svg";
 
 import { Container } from "../../styles/GlobalStyles";
-import { BurgerBtn, UserData, Wrapper } from "./index.styled";
+import { BurgerBtn, UserData, Wrapper } from "./Header.styled";
 import MobileMenu from "./MobileMenu/MobileMenu";
 
 const Header = () => {
