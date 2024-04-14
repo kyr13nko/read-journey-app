@@ -7,6 +7,7 @@ import { refresh } from "../store/auth/authOperations";
 import { useAuth } from "../hooks/useAuth";
 
 import Layout from "./Layout/Layout";
+import Loader from "./Loader/Loader";
 
 import { RestrictedRoute } from "../guards/RestrictedRoute";
 import { PrivateRoute } from "../guards/PrivateRoute";
@@ -29,7 +30,7 @@ const App = () => {
   }, [dispatch]);
 
   return isRefreshing ? (
-    <div>Refreshing...</div>
+    <Loader />
   ) : (
     <>
       <Routes>

@@ -4,6 +4,7 @@ import { Outlet } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
 
 import Header from "../Header";
+import Loader from "../Loader/Loader";
 
 import { Container, Section } from "../../styles/GlobalStyles";
 
@@ -16,7 +17,7 @@ const Layout = () => {
       <main>
         <Container>
           <Section>
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<Loader />}>
               <Outlet />
             </Suspense>
           </Section>
