@@ -30,6 +30,7 @@ export const GlobalStyles = createGlobalStyle`
     --color-text-dark: #686868;
     --color-text-50: rgba(227, 227, 227, 0.5);
     --color-border-hover: rgba(249, 249, 249, 0.2);
+    --color-border-modal: rgba(104, 104, 104, 0.2);
     
 
     --color-2: rgba(227, 227, 227, 0.3);
