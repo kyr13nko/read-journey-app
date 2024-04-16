@@ -29,7 +29,8 @@ const MobileMenu = ({ isOpen, onClose }) => {
   };
 
   return (
-    <Overlay $isOpen={isOpen} onClick={handleBackdropClick}>
+    <>
+      <Overlay $isOpen={isOpen} onClick={handleBackdropClick} />
       <MobileContainer $isOpen={isOpen}>
         <CloseBtn type="button" onClick={onClose}>
           <svg>
@@ -43,7 +44,7 @@ const MobileMenu = ({ isOpen, onClose }) => {
           Log Out
         </LogoutBurgerButton>
       </MobileContainer>
-    </Overlay>
+    </>
   );
 };
 
