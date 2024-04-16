@@ -11,12 +11,12 @@ const booksSlice = createSlice({
   name: "books",
   initialState,
   reducers: {
-    goToNextPage(state) {
+    nextPage(state) {
       if (state.currentPage < state.totalPages) {
         state.currentPage += 1;
       }
     },
-    goToPrevPage(state) {
+    prevPage(state) {
       if (state.currentPage > 1) {
         state.currentPage -= 1;
       }
@@ -25,9 +25,11 @@ const booksSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(getRecommendedBooks.fulfilled, (state, { payload }) => {
       state.recommended = payload.results;
+      state.currentPage = payload.page;
+      state.totalPages = payload.totalPages;
     });
   },
 });
 
-export const { goToNextPage, goToPrevPage } = booksSlice.actions;
+export const { nextPage, prevPage } = booksSlice.actions;
 export const booksReducer = booksSlice.reducer;

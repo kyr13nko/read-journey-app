@@ -1,5 +1,8 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
+
 import { fetchRecommendedBooks } from "../../services/booksAPI";
+
+import { toast } from "react-toastify";
 
 export const getRecommendedBooks = createAsyncThunk(
   "books/recommended",
@@ -8,10 +11,11 @@ export const getRecommendedBooks = createAsyncThunk(
 
     try {
       const { data } = await fetchRecommendedBooks(query);
-      console.log("data:", data);
 
+      if (values.page > data.totalPages) data.page = 1;
       return data;
     } catch (error) {
+      if (error) toast.error(error.response.data.message);
       return rejectWithValue(error.response);
     }
   }

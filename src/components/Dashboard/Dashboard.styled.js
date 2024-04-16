@@ -21,7 +21,7 @@ export const Wrapper = styled.div`
     flex-direction: column;
     gap: 1.25rem;
 
-    max-width: 22.0625rem;
+    min-width: 22.0625rem;
 
     padding: 2.5rem 1.25rem;
   }

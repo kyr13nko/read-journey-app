@@ -1,28 +1,38 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { getRecommendedBooks } from "../../store/books/booksOperations";
+import { useMediaQuery } from "react-responsive";
 
-import { Wrapper } from "./RecommendedBooks.styled";
-import { selectRecommendedBooks } from "../../store/books/booksSelectors";
+import { getRecommendedBooks } from "../../store/books/booksOperations";
+import { selectCurrentPage, selectRecommendedBooks } from "../../store/books/booksSelectors";
+
+import RecommendedCard from "./RecommendedCard/RecommendedCard";
+
+import { BookList, Wrapper } from "./RecommendedBooks.styled";
+import Pagination from "./Pagination/Pagination";
 
 const RecommendedBooks = () => {
   const dispatch = useDispatch();
   const recommendedBooks = useSelector(selectRecommendedBooks);
+  const currentPage = useSelector(selectCurrentPage);
+
+  const mobile = useMediaQuery({ maxWidth: 767 });
+  const tablet = useMediaQuery({ maxWidth: 1439 });
+
+  const limit = mobile ? 2 : tablet ? 8 : 10;
+
   useEffect(() => {
-    dispatch(getRecommendedBooks({ limit: 10, page: 1 }));
-  }, [dispatch]);
+    dispatch(getRecommendedBooks({ limit, page: currentPage }));
+  }, [currentPage, dispatch, limit]);
   return (
     <Wrapper>
       <h2>Recommended</h2>
-      <ul>
+      <BookList>
         {recommendedBooks.map((book) => (
-          <li key={book._id}>
-            <b>{book.author}</b>
-            <p>{book.title}</p>
-          </li>
+          <RecommendedCard key={book._id} book={book} />
         ))}
-      </ul>
+      </BookList>
+      <Pagination />
     </Wrapper>
   );
 };
