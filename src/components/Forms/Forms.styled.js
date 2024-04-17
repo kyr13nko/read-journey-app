@@ -30,9 +30,6 @@ export const Label = styled.span`
   top: 1rem;
   left: 1rem;
 
-  width: 1.125rem;
-  height: 1.125rem;
-
   font-size: 0.75rem;
   line-height: 133%;
   letter-spacing: -0.02em;
@@ -42,9 +39,6 @@ export const Label = styled.span`
   @media screen and (min-width: 768px) {
     top: 1.125rem;
     left: 1.125rem;
-
-    width: 1.25rem;
-    height: 1.25rem;
 
     font-size: 0.875rem;
     line-height: 129%;
@@ -58,6 +52,10 @@ export const Input = styled.input`
   line-height: 133%;
   letter-spacing: -0.02em;
   color: var(--color-text);
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 
   background-color: var(--color-bg-item);
 
@@ -88,6 +86,13 @@ export const Input = styled.input`
     padding-right: 4.875rem;
   }
 
+  &::placeholder {
+    font-size: 0.75rem;
+    line-height: 133%;
+    letter-spacing: -0.02em;
+    color: var(--color-text);
+  }
+
   @media screen and (min-width: 768px) {
     font-size: 0.875rem;
     line-height: 129%;
@@ -105,6 +110,11 @@ export const Input = styled.input`
     &[id="password"] {
       padding-left: 5.625rem;
       padding-right: 5.625rem;
+    }
+
+    &::placeholder {
+      font-size: 12px;
+      line-height: 133%;
     }
   }
 `;
@@ -216,6 +226,12 @@ export const StyledLink = styled(Link)`
   text-decoration-skip-ink: none;
 
   color: var(--color-text-dark);
+
+  transition: var(--transition);
+
+  &:hover {
+    color: var(--color-text);
+  }
 
   @media screen and (min-width: 768px) {
     font-size: 0.875rem;

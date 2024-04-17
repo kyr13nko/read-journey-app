@@ -27,3 +27,8 @@ export const loginSchema = Yup.object().shape({
     .max(16, "Password must not exceed 16 characters")
     .required("Password is required"),
 });
+
+export const recommendedFilterSchema = Yup.object().shape({
+  title: Yup.string(),
+  author: Yup.string(),
+});

@@ -1,14 +1,15 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { ContentWrapper } from "../Dashboard.styled";
 
-export const Wrapper = styled.div`
+export const Wrap = styled(ContentWrapper)`
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
-  background-color: var(--color-bg-item);
-  border-radius: 0.75rem;
 
-  padding: 1.25rem;
+  @media screen and (min-width: 768px) {
+    width: 313px;
+  }
 `;
 
 export const Title = styled.h3`
@@ -26,6 +27,10 @@ export const List = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
+
+  @media screen and (min-width: 768px) {
+    width: 253px;
+  }
 `;
 
 export const Item = styled.li`

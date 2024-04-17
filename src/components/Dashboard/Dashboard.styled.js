@@ -24,6 +24,13 @@ export const Wrapper = styled.div`
     min-width: 22.0625rem;
     max-width: 22.0625rem;
 
-    padding: 2.5rem 1.25rem;
+    padding: 2.5rem 1.25rem 1.25rem;
   }
+`;
+
+export const ContentWrapper = styled.div`
+  background-color: var(--color-bg-item);
+  border-radius: 0.75rem;
+
+  padding: 1.25rem;
 `;

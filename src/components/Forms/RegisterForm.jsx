@@ -57,6 +57,7 @@ const RegisterForm = () => {
             id="name"
             type="text"
             name="name"
+            placeholder="Name Surname"
             onChange={handleChange}
             onBlur={handleBlur}
             value={values.name}
@@ -92,6 +93,7 @@ const RegisterForm = () => {
             id="email"
             type="email"
             name="email"
+            placeholder="Your@email.com"
             onChange={handleChange}
             onBlur={handleBlur}
             value={values.email}
@@ -127,6 +129,7 @@ const RegisterForm = () => {
             id="password"
             type={passVisible ? "text" : "password"}
             name="password"
+            placeholder="Yourpasswordhere"
             onChange={handleChange}
             onBlur={handleBlur}
             value={values.password}

@@ -1,19 +1,11 @@
 import { Link } from "react-router-dom";
+
 import sprite from "../../../assets/images/sprite.svg";
-import {
-  Item,
-  LinkWrapper,
-  List,
-  Number,
-  StyledLink,
-  Text,
-  Title,
-  Wrapper,
-} from "./Workout.styled";
+import { Item, LinkWrapper, List, Number, StyledLink, Text, Title, Wrap } from "./Workout.styled";
 
 const Workout = () => {
   return (
-    <Wrapper>
+    <Wrap>
       <Title>Start your workout</Title>
       <List>
         <Item>
@@ -39,7 +31,7 @@ const Workout = () => {
           </svg>
         </Link>
       </LinkWrapper>
-    </Wrapper>
+    </Wrap>
   );
 };
 
