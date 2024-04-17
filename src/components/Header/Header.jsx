@@ -22,7 +22,7 @@ const Header = () => {
       <Container>
         <Wrapper>
           <Logotype />
-          <UserNav type="nav-menu" />
+          <UserNav styleType="nav-menu" />
           <UserData>
             <UserBar />
             <BurgerBtn type="button" onClick={handleMenuOpen}>

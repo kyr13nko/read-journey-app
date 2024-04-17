@@ -1,15 +1,15 @@
 import { NavList, NavMenuLink, NavBurgerLink } from "./UserNav.styled";
 
-const UserNav = ({ type, onClose }) => {
+const UserNav = ({ styleType, onClose }) => {
   return (
     <NavList>
-      {type === "nav-menu" && (
+      {styleType === "nav-menu" && (
         <>
           <NavMenuLink to="/recommended">Home</NavMenuLink>
           <NavMenuLink to="/library">My library</NavMenuLink>
         </>
       )}
-      {type === "burger-menu" && (
+      {styleType === "burger-menu" && (
         <>
           <NavBurgerLink to="/recommended" onClick={onClose}>
             Home

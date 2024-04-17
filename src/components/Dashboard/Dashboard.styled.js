@@ -22,6 +22,7 @@ export const Wrapper = styled.div`
     gap: 1.25rem;
 
     min-width: 22.0625rem;
+    max-width: 22.0625rem;
 
     padding: 2.5rem 1.25rem;
   }

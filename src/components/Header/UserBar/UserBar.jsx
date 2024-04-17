@@ -13,7 +13,7 @@ const UserBar = () => {
         <Avatar>{user.name.charAt(0)}</Avatar>
         <Name>{user.name}</Name>
       </User>
-      <LogoutBtn />
+      <LogoutBtn styleType="nav-btn" />
     </Wrapper>
   );
 };

@@ -1,9 +1,8 @@
 import { useDispatch } from "react-redux";
 import { logout } from "../../../store/auth/authOperations";
+import { LogoutBurgerButton, LogoutNavButton } from "./LogoutBtn.styled";
 
-import { LogoutButton } from "../Header.styled";
-
-const LogoutBtn = () => {
+const LogoutBtn = ({ styleType }) => {
   const dispatch = useDispatch();
 
   const handleLogout = () => {
@@ -11,9 +10,18 @@ const LogoutBtn = () => {
   };
 
   return (
-    <LogoutButton type="button" onClick={handleLogout}>
-      Log Out
-    </LogoutButton>
+    <>
+      {styleType === "nav-btn" && (
+        <LogoutNavButton type="button" onClick={handleLogout}>
+          Log Out
+        </LogoutNavButton>
+      )}
+      {styleType === "burger-btn" && (
+        <LogoutBurgerButton type="button" onClick={handleLogout}>
+          Log Out
+        </LogoutBurgerButton>
+      )}
+    </>
   );
 };
 

@@ -1,17 +1,13 @@
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { logout } from "../../../store/auth/authOperations";
 
 import UserNav from "../UserNav/UserNav";
+import LogoutBtn from "../LogoutBtn/LogoutBtn";
 
 import sprite from "../../../assets/images/sprite.svg";
 
 import { CloseBtn, MobileContainer, Overlay } from "./MobileMenu.styled";
-import { LogoutBurgerButton } from "../Header.styled";
 
 const MobileMenu = ({ isOpen, onClose }) => {
-  const dispatch = useDispatch();
-
   useEffect(() => {
     if (isOpen) document.body.style.overflow = "hidden";
 
@@ -19,10 +15,6 @@ const MobileMenu = ({ isOpen, onClose }) => {
       document.body.style.overflow = "visible";
     };
   }, [isOpen]);
-
-  const handleLogout = () => {
-    dispatch(logout());
-  };
 
   const handleBackdropClick = (e) => {
     if (e.target === e.currentTarget) onClose();
@@ -38,11 +30,9 @@ const MobileMenu = ({ isOpen, onClose }) => {
           </svg>
         </CloseBtn>
 
-        <UserNav type="burger-menu" onClose={onClose} />
+        <UserNav styleType="burger-menu" onClose={onClose} />
 
-        <LogoutBurgerButton type="button" onClick={handleLogout}>
-          Log Out
-        </LogoutBurgerButton>
+        <LogoutBtn styleType="burger-btn">Log Out</LogoutBtn>
       </MobileContainer>
     </>
   );
