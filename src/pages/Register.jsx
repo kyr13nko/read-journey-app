@@ -1,5 +1,5 @@
-import RegisterForm from "../../components/Forms/RegisterForm";
-import Home from "../../components/Home/Home";
+import RegisterForm from "../components/Forms/RegisterForm";
+import Home from "../components/Home/Home";
 
 const Register = () => {
   return (

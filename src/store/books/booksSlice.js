@@ -1,8 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getRecommendedBooks } from "./booksOperations";
+import { getOwnBooks, getRecommendedBooks } from "./booksOperations";
 
 const initialState = {
   recommended: [],
+  own: [],
   currentPage: 1,
   totalPages: 0,
 };
@@ -27,6 +28,10 @@ const booksSlice = createSlice({
       state.recommended = payload.results;
       state.currentPage = payload.page;
       state.totalPages = payload.totalPages;
+    });
+
+    builder.addCase(getOwnBooks.fulfilled, (state, { payload }) => {
+      state.own = payload;
     });
   },
 });

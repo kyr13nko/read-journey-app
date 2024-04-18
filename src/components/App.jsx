@@ -15,11 +15,11 @@ import { PrivateRoute } from "../guards/PrivateRoute";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
 
-const Login = lazy(() => import("../pages/Login/Login"));
-const Register = lazy(() => import("../pages/Register/Register"));
+const Login = lazy(() => import("../pages/Login"));
+const Register = lazy(() => import("../pages/Register"));
 
-const Recommended = lazy(() => import("../pages/Recommended/Recommended"));
-const Library = lazy(() => import("../pages/Library/Library"));
+const Recommended = lazy(() => import("../pages/Recommended"));
+const MyLibrary = lazy(() => import("../pages/MyLibrary"));
 
 const App = () => {
   const dispatch = useDispatch();
@@ -51,7 +51,7 @@ const App = () => {
 
           <Route
             path="library"
-            element={<PrivateRoute redirectTo="/register" component={<Library />} />}
+            element={<PrivateRoute redirectTo="/register" component={<MyLibrary />} />}
           />
           <Route
             path="recommended"

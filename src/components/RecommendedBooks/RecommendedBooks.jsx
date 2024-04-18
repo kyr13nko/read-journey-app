@@ -8,10 +8,10 @@ import { selectCurrentPage, selectRecommendedBooks } from "../../store/books/boo
 import { getLimit } from "../../helpers/getLimit";
 
 import RecommendedCard from "./RecommendedCard/RecommendedCard";
-
-import { BookList, Wrapper } from "./RecommendedBooks.styled";
 import Pagination from "./Pagination/Pagination";
 import NoResults from "../NoResults/NoResults";
+
+import { BookList, BookWrapper } from "../../styles/GlobalStyles";
 
 const RecommendedBooks = () => {
   const dispatch = useDispatch();
@@ -27,7 +27,7 @@ const RecommendedBooks = () => {
     dispatch(getRecommendedBooks({ limit, page: currentPage }));
   }, [currentPage, dispatch, limit]);
   return (
-    <Wrapper>
+    <BookWrapper>
       <h2>Recommended</h2>
       {recommendedBooks.length ? (
         <BookList>
@@ -39,7 +39,7 @@ const RecommendedBooks = () => {
         <NoResults text="recommended" />
       )}
       <Pagination />
-    </Wrapper>
+    </BookWrapper>
   );
 };
 
