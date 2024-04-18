@@ -33,6 +33,8 @@ export const getOwnBooks = createAsyncThunk(
   async (status = null, { rejectWithValue }) => {
     try {
       const { data } = await fetchOwnBooks(status);
+      console.log("data:", data);
+
       return data;
     } catch (error) {
       if (error) toast.error(error.response.data.message);

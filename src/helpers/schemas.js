@@ -32,3 +32,9 @@ export const recommendedFilterSchema = Yup.object().shape({
   title: Yup.string(),
   author: Yup.string(),
 });
+
+export const addBookFilterSchema = Yup.object().shape({
+  title: Yup.string().required("Title is required"),
+  author: Yup.string().required("Author is required"),
+  totalPages: Yup.number().required("Page is required"),
+});

@@ -96,11 +96,15 @@ export const Input = styled.input`
   }
 
   &[id="title"] {
-    padding-left: 77px;
+    padding-left: 4.8125rem;
   }
 
   &[id="author"] {
-    padding-left: 85px;
+    padding-left: 5.3125rem;
+  }
+
+  &[id="totalPages"] {
+    padding-left: 7.4375rem;
   }
 
   &::placeholder {
@@ -117,11 +121,15 @@ export const Input = styled.input`
     padding: 1rem 0.875rem;
 
     &[id="title"] {
-      padding-left: 86px;
+      padding-left: 5.375rem;
     }
 
     &[id="author"] {
       padding-left: 5.9375rem;
+    }
+
+    &[id="totalPages"] {
+      padding-left: 8.4375rem;
     }
 
     &::placeholder {

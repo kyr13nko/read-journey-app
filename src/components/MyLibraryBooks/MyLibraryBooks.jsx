@@ -12,7 +12,7 @@ const MyLibraryBooks = () => {
   const ownBooks = useSelector(selectOwnBooks);
 
   useEffect(() => {
-    dispatch(getOwnBooks("done"));
+    dispatch(getOwnBooks());
   }, [dispatch]);
 
   return (
