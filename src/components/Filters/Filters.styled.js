@@ -131,6 +131,11 @@ export const Input = styled.input`
   }
 `;
 
+export const ButtonWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
 export const Button = styled.button`
   align-self: self-start;
 

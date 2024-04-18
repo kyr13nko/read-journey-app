@@ -1,9 +1,18 @@
-import { useFormik } from "formik";
+import { useDispatch } from "react-redux";
+import { useState } from "react";
 
+import { toast } from "react-toastify";
+
+import { useMediaQuery } from "react-responsive";
+import { getRecommendedBooks } from "../../store/books/booksOperations";
+import { getLimit } from "../../helpers/getLimit";
+
+import { useFormik } from "formik";
 import { recommendedFilterSchema } from "../../helpers/schemas";
 
 import {
   Button,
+  ButtonWrapper,
   FilterWrapper,
   Form,
   Input,
@@ -14,23 +23,39 @@ import {
 } from "./Filters.styled";
 
 const RecommendedFilter = () => {
+  const dispatch = useDispatch();
+  const [filterReset, setFilterReset] = useState(false);
+
+  const mobile = useMediaQuery({ maxWidth: 767 });
+  const tablet = useMediaQuery({ maxWidth: 1439 });
+
+  const limit = getLimit(mobile, tablet);
+
   const formik = useFormik({
     initialValues: {
       title: "",
       author: "",
     },
     validationSchema: recommendedFilterSchema,
-    onSubmit: async (values, { resetForm }) => {
-      const { title, author } = values;
-      console.log("title", title);
-      console.log("author", author);
+    onSubmit: async ({ title, author }, { resetForm }) => {
       try {
-        resetForm();
+        if (title || author) {
+          dispatch(getRecommendedBooks({ title, author }));
+
+          setFilterReset(true);
+          resetForm();
+        } else toast.warning("Please, choose search params!");
       } catch (error) {
         console.error(error);
       }
     },
   });
+
+  const resetFilter = () => {
+    dispatch(getRecommendedBooks({ limit }));
+    setFilterReset(false);
+  };
+
   const { handleSubmit, handleChange, handleBlur, values } = formik;
 
   return (
@@ -63,7 +88,14 @@ const RecommendedFilter = () => {
           </InputWrapper>
         </Wrapper>
 
-        <Button type="submit">To apply</Button>
+        <ButtonWrapper>
+          <Button type="submit">To apply</Button>
+          {filterReset && (
+            <Button type="button" onClick={resetFilter}>
+              Reset
+            </Button>
+          )}
+        </ButtonWrapper>
       </Form>
     </FilterWrapper>
   );

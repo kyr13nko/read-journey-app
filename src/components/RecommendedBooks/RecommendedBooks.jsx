@@ -5,6 +5,7 @@ import { useMediaQuery } from "react-responsive";
 
 import { getRecommendedBooks } from "../../store/books/booksOperations";
 import { selectCurrentPage, selectRecommendedBooks } from "../../store/books/booksSelectors";
+import { getLimit } from "../../helpers/getLimit";
 
 import RecommendedCard from "./RecommendedCard/RecommendedCard";
 
@@ -19,7 +20,9 @@ const RecommendedBooks = () => {
   const mobile = useMediaQuery({ maxWidth: 767 });
   const tablet = useMediaQuery({ maxWidth: 1439 });
 
-  const limit = mobile ? 2 : tablet ? 8 : 10;
+  // const limit = mobile ? 2 : tablet ? 8 : 10;
+
+  const limit = getLimit(mobile, tablet);
 
   useEffect(() => {
     dispatch(getRecommendedBooks({ limit, page: currentPage }));
@@ -27,11 +30,15 @@ const RecommendedBooks = () => {
   return (
     <Wrapper>
       <h2>Recommended</h2>
-      <BookList>
-        {recommendedBooks.map((book) => (
-          <RecommendedCard key={book._id} book={book} />
-        ))}
-      </BookList>
+      {recommendedBooks.length ? (
+        <BookList>
+          {recommendedBooks.map((book) => (
+            <RecommendedCard key={book._id} book={book} />
+          ))}
+        </BookList>
+      ) : (
+        <div>No Results</div>
+      )}
       <Pagination />
     </Wrapper>
   );

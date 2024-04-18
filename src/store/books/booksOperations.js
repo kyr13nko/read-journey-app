@@ -6,14 +6,22 @@ import { toast } from "react-toastify";
 
 export const getRecommendedBooks = createAsyncThunk(
   "books/recommended",
-  async (values, { rejectWithValue }) => {
-    const query = new URLSearchParams(values).toString();
+  async ({ limit, page = 1, title, author }, { rejectWithValue }) => {
+    const params = {};
+
+    if (limit) params.limit = limit;
+    if (page) params.page = page;
+    if (title) params.title = title;
+    if (author) params.author = author;
+
+    const query = new URLSearchParams(params).toString();
+    console.log("query:", query);
 
     try {
       const { data } = await fetchRecommendedBooks(query);
 
-      if (values.page > data.totalPages) data.page = 1;
-      return data;
+      if (page > data.totalPages) page = 1;
+      return { ...data, page };
     } catch (error) {
       if (error) toast.error(error.response.data.message);
       return rejectWithValue(error.response);
