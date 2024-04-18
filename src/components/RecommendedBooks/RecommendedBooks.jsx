@@ -11,6 +11,7 @@ import RecommendedCard from "./RecommendedCard/RecommendedCard";
 
 import { BookList, Wrapper } from "./RecommendedBooks.styled";
 import Pagination from "./Pagination/Pagination";
+import NoResults from "../NoResults/NoResults";
 
 const RecommendedBooks = () => {
   const dispatch = useDispatch();
@@ -19,8 +20,6 @@ const RecommendedBooks = () => {
 
   const mobile = useMediaQuery({ maxWidth: 767 });
   const tablet = useMediaQuery({ maxWidth: 1439 });
-
-  // const limit = mobile ? 2 : tablet ? 8 : 10;
 
   const limit = getLimit(mobile, tablet);
 
@@ -37,7 +36,7 @@ const RecommendedBooks = () => {
           ))}
         </BookList>
       ) : (
-        <div>No Results</div>
+        <NoResults text="recommended" />
       )}
       <Pagination />
     </Wrapper>
