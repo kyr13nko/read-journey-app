@@ -32,7 +32,7 @@ const MyLibraryCard = ({ book }) => {
           onClick={toggleModal}
         />
         <BookCardWrapper>
-          <BookCardContent>
+          <BookCardContent width={75}>
             <h4>{title}</h4>
             <h3>{author}</h3>
           </BookCardContent>

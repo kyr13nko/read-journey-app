@@ -247,6 +247,8 @@ export const BookCardContent = styled.div`
   flex-direction: column;
   gap: 0.125rem;
 
+  width: ${({ width }) => (width ? `${width}%` : "100%")};
+
   & h4 {
     font-weight: 700;
     font-size: 0.875rem;
