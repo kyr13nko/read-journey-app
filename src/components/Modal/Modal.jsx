@@ -8,8 +8,6 @@ import { CloseBtn, Overlay, Wrapper } from "./Modal.styled";
 const modalRoot = document.getElementById("modal-root");
 
 const Modal = ({ children, onClose, width }) => {
-  console.log("Modal ---> width:", width);
-
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.code === "Escape") onClose();

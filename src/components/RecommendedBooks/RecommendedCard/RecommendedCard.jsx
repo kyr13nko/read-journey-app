@@ -1,6 +1,14 @@
 import { useState } from "react";
+
 import Modal from "../../Modal/Modal";
-import { AddToLibraryBtn, Card, Content, ModalCard, ModalContent } from "./RecommendedCard.styled";
+
+import {
+  BookCard,
+  BookCardContent,
+  ModalBookBtn,
+  ModalBookCard,
+  ModalBookContent,
+} from "../../../styles/GlobalStyles";
 
 const RecommendedCard = ({ book }) => {
   const { title, author, imageUrl, totalPages } = book;
@@ -13,24 +21,25 @@ const RecommendedCard = ({ book }) => {
 
   return (
     <>
-      <Card>
+      <BookCard>
         <img src={imageUrl} alt={`${author} - ${title}`} onClick={toggleModal} />
-        <Content>
+        <BookCardContent>
           <h4>{title}</h4>
           <h3>{author}</h3>
-        </Content>
-      </Card>
+        </BookCardContent>
+      </BookCard>
+
       {isOpenModal && (
         <Modal width={500} onClose={toggleModal}>
-          <ModalCard>
-            <ModalContent>
+          <ModalBookCard>
+            <ModalBookContent>
               <img src={imageUrl} alt={`${author} - ${title}`} />
               <h4>{title}</h4>
               <h3>{author}</h3>
               <p>{totalPages} pages</p>
-            </ModalContent>
-            <AddToLibraryBtn type="button">Add to library</AddToLibraryBtn>
-          </ModalCard>
+            </ModalBookContent>
+            <ModalBookBtn type="button">Add to library</ModalBookBtn>
+          </ModalBookCard>
         </Modal>
       )}
     </>
