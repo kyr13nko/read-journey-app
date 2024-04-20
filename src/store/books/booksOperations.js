@@ -1,6 +1,12 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-import { fetchAddBook, fetchOwnBooks, fetchRecommendedBooks } from "../../services/booksAPI";
+import {
+  fetchAddBook,
+  fetchAddBookById,
+  fetchDelBookById,
+  fetchOwnBooks,
+  fetchRecommendedBooks,
+} from "../../services/booksAPI";
 
 import { toast } from "react-toastify";
 
@@ -30,6 +36,30 @@ export const getRecommendedBooks = createAsyncThunk(
 export const addBook = createAsyncThunk("books/add", async (values, { rejectWithValue }) => {
   try {
     const { data } = await fetchAddBook(values);
+    return data;
+  } catch (error) {
+    if (error) toast.error(error.response.data.message);
+    return rejectWithValue(error.response);
+  }
+});
+
+export const addBookById = createAsyncThunk("books/addById", async (id, { rejectWithValue }) => {
+  try {
+    const { data } = await fetchAddBookById(id);
+    console.log("addBookById ---> data:", data);
+
+    toast.success("This book added successfully!");
+    return data;
+  } catch (error) {
+    if (error) toast.error(error.response.data.message);
+    return rejectWithValue(error.response);
+  }
+});
+
+export const delBookById = createAsyncThunk("books/delById", async (id, { rejectWithValue }) => {
+  try {
+    const { data } = await fetchDelBookById(id);
+    toast.success(data.message);
     return data;
   } catch (error) {
     if (error) toast.error(error.response.data.message);

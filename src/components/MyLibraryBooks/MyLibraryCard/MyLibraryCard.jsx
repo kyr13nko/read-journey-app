@@ -1,4 +1,7 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+
+import { delBookById } from "../../../store/books/booksOperations";
 
 import Modal from "../../Modal/Modal";
 
@@ -15,7 +18,8 @@ import {
 import { BookCardWrapper, DeleteBtn } from "./MyLibraryCard.styled";
 
 const MyLibraryCard = ({ book }) => {
-  const { title, author, imageUrl, totalPages } = book;
+  const dispatch = useDispatch();
+  const { _id, title, author, imageUrl, totalPages } = book;
 
   const [isOpenModal, setIsOpenModal] = useState(false);
 
@@ -36,7 +40,7 @@ const MyLibraryCard = ({ book }) => {
             <h4>{title}</h4>
             <h3>{author}</h3>
           </BookCardContent>
-          <DeleteBtn>
+          <DeleteBtn onClick={() => dispatch(delBookById(_id))}>
             <svg>
               <use href={`${sprite}#delete`}></use>
             </svg>

@@ -1,5 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { addBook, getOwnBooks, getRecommendedBooks } from "./booksOperations";
+import {
+  addBook,
+  addBookById,
+  delBookById,
+  getOwnBooks,
+  getRecommendedBooks,
+} from "./booksOperations";
 
 const initialState = {
   recommended: [],
@@ -24,19 +30,28 @@ const booksSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(getRecommendedBooks.fulfilled, (state, { payload }) => {
-      state.recommended = payload.results;
-      state.currentPage = payload.page;
-      state.totalPages = payload.totalPages;
-    });
+    builder
+      .addCase(getRecommendedBooks.fulfilled, (state, { payload }) => {
+        state.recommended = payload.results;
+        state.currentPage = payload.page;
+        state.totalPages = payload.totalPages;
+      })
 
-    builder.addCase(addBook.fulfilled, (state, { payload }) => {
-      state.own = [...state.own, payload];
-    });
+      .addCase(addBook.fulfilled, (state, { payload }) => {
+        state.own = [...state.own, payload];
+      })
 
-    builder.addCase(getOwnBooks.fulfilled, (state, { payload }) => {
-      state.own = payload;
-    });
+      .addCase(addBookById.fulfilled, (state, { payload }) => {
+        console.log("payload", payload);
+      })
+
+      .addCase(delBookById.fulfilled, (state, { payload }) => {
+        state.own = state.own.filter((book) => book._id !== payload.id);
+      })
+
+      .addCase(getOwnBooks.fulfilled, (state, { payload }) => {
+        state.own = payload;
+      });
   },
 });
 
