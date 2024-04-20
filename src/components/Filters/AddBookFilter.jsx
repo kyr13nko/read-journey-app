@@ -41,7 +41,7 @@ const AddBookFilter = () => {
     validationSchema: addBookFilterSchema,
     onSubmit: async ({ title, author, totalPages }, { resetForm }) => {
       try {
-        let bookExists = ownBooks.find((item) => item.title === title);
+        let bookExists = ownBooks.find((book) => book.title === title);
 
         if (!bookExists) {
           dispatch(addBook({ title, author, totalPages }));

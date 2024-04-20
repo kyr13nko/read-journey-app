@@ -6,6 +6,8 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import { refresh } from "../store/auth/authOperations";
 import { useAuth } from "../hooks/useAuth";
 
+import { getOwnBooks } from "../store/books/booksOperations";
+
 import Layout from "./Layout/Layout";
 import Loader from "./Loader/Loader";
 
@@ -27,6 +29,7 @@ const App = () => {
 
   useEffect(() => {
     dispatch(refresh());
+    dispatch(getOwnBooks());
   }, [dispatch]);
 
   return isRefreshing ? (

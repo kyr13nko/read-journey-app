@@ -6,12 +6,15 @@ import {
   getOwnBooks,
   getRecommendedBooks,
 } from "./booksOperations";
+import { handleFulfilled, handlePending, handleRejected } from "./booksHelpers";
 
 const initialState = {
   recommended: [],
   own: [],
   currentPage: 1,
   totalPages: 0,
+  isLoading: false,
+  error: null,
 };
 
 const booksSlice = createSlice({
@@ -42,7 +45,7 @@ const booksSlice = createSlice({
       })
 
       .addCase(addBookById.fulfilled, (state, { payload }) => {
-        console.log("payload", payload);
+        state.own = [...state.own, payload];
       })
 
       .addCase(delBookById.fulfilled, (state, { payload }) => {
@@ -51,7 +54,11 @@ const booksSlice = createSlice({
 
       .addCase(getOwnBooks.fulfilled, (state, { payload }) => {
         state.own = payload;
-      });
+      })
+
+      .addMatcher((action) => action.type.endsWith("pending"), handlePending)
+      .addMatcher((action) => action.type.endsWith("fulfilled"), handleFulfilled)
+      .addMatcher((action) => action.type.endsWith("rejected"), handleRejected);
   },
 });
 
