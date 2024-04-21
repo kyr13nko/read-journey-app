@@ -136,47 +136,6 @@ export const PassSvg = styled.svg`
   }
 `;
 
-const Message = styled.div`
-  font-size: 0.625rem;
-  line-height: 120%;
-  letter-spacing: -0.02em;
-
-  margin-top: 0.25rem;
-  margin-left: 0.875rem;
-
-  @media screen and (min-width: 768px) {
-    font-size: 0.75rem;
-    line-height: 117%;
-
-    margin-top: 0.5rem;
-  }
-`;
-
-export const Error = styled(Message)`
-  color: var(--color-red);
-`;
-
-export const Success = styled(Message)`
-  color: var(--color-green);
-`;
-
-export const MessageSvg = styled.svg`
-  position: absolute;
-  top: 0.9375rem;
-  right: 1rem;
-
-  width: 1.125rem;
-  height: 1.125rem;
-
-  @media screen and (min-width: 768px) {
-    top: 1rem;
-    right: 1.125rem;
-
-    width: 1.25rem;
-    height: 1.25rem;
-  }
-`;
-
 export const ButtonWrapper = styled.div`
   display: flex;
   align-items: center;

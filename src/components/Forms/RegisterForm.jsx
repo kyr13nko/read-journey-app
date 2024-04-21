@@ -10,17 +10,15 @@ import sprite from "../../assets/images/sprite.svg";
 import {
   Button,
   ButtonWrapper,
-  Error,
   Form,
   Input,
   InputWrapper,
   Label,
-  MessageSvg,
   PassSvg,
   StyledLink,
-  Success,
   Wrapper,
 } from "./Forms.styled";
+import { ErrorMessage, MessageSvg, SuccessMessage } from "../../styles/GlobalStyles";
 
 const RegisterForm = () => {
   const dispatch = useDispatch();
@@ -82,9 +80,9 @@ const RegisterForm = () => {
           ) : null}
 
           {touched.name && errors.name ? (
-            <Error>{errors.name}</Error>
+            <ErrorMessage>{errors.name}</ErrorMessage>
           ) : (
-            touched.name && <Success>Name is correct!</Success>
+            touched.name && <SuccessMessage>Name is correct!</SuccessMessage>
           )}
         </InputWrapper>
         <InputWrapper>
@@ -118,9 +116,9 @@ const RegisterForm = () => {
           ) : null}
 
           {touched.email && errors.email ? (
-            <Error>{errors.email}</Error>
+            <ErrorMessage>{errors.email}</ErrorMessage>
           ) : (
-            touched.email && <Success>Email is correct!</Success>
+            touched.email && <SuccessMessage>Email is correct!</SuccessMessage>
           )}
         </InputWrapper>
         <InputWrapper>
@@ -160,9 +158,9 @@ const RegisterForm = () => {
           ) : null}
 
           {touched.password && errors.password ? (
-            <Error>{errors.password}</Error>
+            <ErrorMessage>{errors.password}</ErrorMessage>
           ) : (
-            touched.password && <Success>Password is secure!</Success>
+            touched.password && <SuccessMessage>Password is secure!</SuccessMessage>
           )}
         </InputWrapper>
       </Wrapper>

@@ -10,17 +10,15 @@ import sprite from "../../assets/images/sprite.svg";
 import {
   Button,
   ButtonWrapper,
-  Error,
   Form,
   Input,
   InputWrapper,
   Label,
-  MessageSvg,
   PassSvg,
   StyledLink,
-  Success,
   Wrapper,
 } from "./Forms.styled";
+import { ErrorMessage, MessageSvg, SuccessMessage } from "../../styles/GlobalStyles";
 
 const LoginForm = () => {
   const dispatch = useDispatch();
@@ -81,9 +79,9 @@ const LoginForm = () => {
           ) : null}
 
           {touched.email && errors.email ? (
-            <Error>{errors.email}</Error>
+            <ErrorMessage>{errors.email}</ErrorMessage>
           ) : (
-            touched.email && <Success>Email is correct!</Success>
+            touched.email && <SuccessMessage>Email is correct!</SuccessMessage>
           )}
         </InputWrapper>
         <InputWrapper>
@@ -123,9 +121,9 @@ const LoginForm = () => {
           ) : null}
 
           {touched.password && errors.password ? (
-            <Error>{errors.password}</Error>
+            <ErrorMessage>{errors.password}</ErrorMessage>
           ) : (
-            touched.password && <Success>Password is secure!</Success>
+            touched.password && <SuccessMessage>Password is secure!</SuccessMessage>
           )}
         </InputWrapper>
       </Wrapper>

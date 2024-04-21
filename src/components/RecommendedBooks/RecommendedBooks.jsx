@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { useMediaQuery } from "react-responsive";
 
-import { getRecommendedBooks } from "../../store/books/booksOperations";
+import { getOwnBooks, getRecommendedBooks } from "../../store/books/booksOperations";
 import { selectCurrentPage, selectRecommendedBooks } from "../../store/books/booksSelectors";
 import { getLimit } from "../../helpers/getLimit";
 
@@ -25,7 +25,9 @@ const RecommendedBooks = () => {
 
   useEffect(() => {
     dispatch(getRecommendedBooks({ limit, page: currentPage }));
+    dispatch(getOwnBooks());
   }, [currentPage, dispatch, limit]);
+
   return (
     <BookWrapper>
       <h2>Recommended</h2>

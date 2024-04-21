@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { toast } from "react-toastify";
 
-import { addBookById, delBookById } from "../../../store/books/booksOperations";
+import { addBookById } from "../../../store/books/booksOperations";
 import { selectOwnBooks } from "../../../store/books/booksSelectors";
 
 import Modal from "../../Modal/Modal";
@@ -28,15 +28,14 @@ const RecommendedCard = ({ book }) => {
     setIsOpenModal((prev) => !prev);
   };
 
-  const bookExists = ownBooks.find((book) => book.title === title);
-
   const handleAddBtnClick = () => {
+    const bookExists = ownBooks.find((book) => book.title === title);
+
     if (!bookExists) {
       dispatch(addBookById(_id));
-      // bookExists = false;
+      toggleModal();
     } else {
-      dispatch(delBookById(_id));
-      // toast.warning(`Such book is already in the library!`)
+      toast.warning(`Such book is already in the library!`);
     }
   };
 
@@ -60,7 +59,7 @@ const RecommendedCard = ({ book }) => {
               <p>{totalPages} pages</p>
             </ModalBookContent>
             <ModalBookBtn type="button" onClick={handleAddBtnClick}>
-              {bookExists ? "Remove from library" : "Add to library"}
+              Add to library
             </ModalBookBtn>
           </ModalBookCard>
         </Modal>

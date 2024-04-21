@@ -10,6 +10,7 @@ import { selectOwnBooks } from "../../store/books/booksSelectors";
 import { useFormik } from "formik";
 import { addBookFilterSchema } from "../../helpers/schemas";
 
+import sprite from "../../assets/images/sprite.svg";
 import {
   Button,
   FilterWrapper,
@@ -21,6 +22,7 @@ import {
   Wrapper,
 } from "./Filters.styled";
 import { toast } from "react-toastify";
+import { ErrorMessage, MessageSvg, SuccessMessage } from "../../styles/GlobalStyles";
 
 const AddBookFilter = () => {
   const dispatch = useDispatch();
@@ -55,7 +57,7 @@ const AddBookFilter = () => {
     },
   });
 
-  const { handleSubmit, handleChange, handleBlur, values } = formik;
+  const { handleSubmit, handleChange, handleBlur, values, touched, errors } = formik;
 
   return (
     <>
@@ -73,7 +75,31 @@ const AddBookFilter = () => {
                 onChange={handleChange}
                 onBlur={handleBlur}
                 value={values.title}
+                style={{
+                  borderColor:
+                    touched.title && errors.title
+                      ? "var(--color-red)"
+                      : touched.title && !errors.title
+                      ? "var(--color-green)"
+                      : "transparent",
+                }}
               />
+
+              {touched.title && errors.title ? (
+                <MessageSvg>
+                  <use href={`${sprite}#error`} />
+                </MessageSvg>
+              ) : touched.title && !errors.title ? (
+                <MessageSvg>
+                  <use href={`${sprite}#success`} />
+                </MessageSvg>
+              ) : null}
+
+              {touched.title && errors.title ? (
+                <ErrorMessage>{errors.title}</ErrorMessage>
+              ) : (
+                touched.title && <SuccessMessage>Title is correct!</SuccessMessage>
+              )}
             </InputWrapper>
             <InputWrapper>
               <Label>The author:</Label>
@@ -83,8 +109,33 @@ const AddBookFilter = () => {
                 placeholder="Enter text"
                 name="author"
                 onChange={handleChange}
+                onBlur={handleBlur}
                 value={values.author}
+                style={{
+                  borderColor:
+                    touched.author && errors.author
+                      ? "var(--color-red)"
+                      : touched.author && !errors.author
+                      ? "var(--color-green)"
+                      : "transparent",
+                }}
               />
+
+              {touched.author && errors.author ? (
+                <MessageSvg>
+                  <use href={`${sprite}#error`} />
+                </MessageSvg>
+              ) : touched.author && !errors.author ? (
+                <MessageSvg>
+                  <use href={`${sprite}#success`} />
+                </MessageSvg>
+              ) : null}
+
+              {touched.author && errors.author ? (
+                <ErrorMessage>{errors.author}</ErrorMessage>
+              ) : (
+                touched.author && <SuccessMessage>Author is correct!</SuccessMessage>
+              )}
             </InputWrapper>
             <InputWrapper>
               <Label>Number of pages:</Label>
@@ -94,8 +145,33 @@ const AddBookFilter = () => {
                 placeholder="Enter value"
                 name="totalPages"
                 onChange={handleChange}
+                onBlur={handleBlur}
                 value={values.totalPages}
+                style={{
+                  borderColor:
+                    touched.totalPages && errors.totalPages
+                      ? "var(--color-red)"
+                      : touched.totalPages && !errors.totalPages
+                      ? "var(--color-green)"
+                      : "transparent",
+                }}
               />
+
+              {touched.totalPages && errors.totalPages ? (
+                <MessageSvg>
+                  <use href={`${sprite}#error`} />
+                </MessageSvg>
+              ) : touched.totalPages && !errors.totalPages ? (
+                <MessageSvg>
+                  <use href={`${sprite}#success`} />
+                </MessageSvg>
+              ) : null}
+
+              {touched.totalPages && errors.totalPages ? (
+                <ErrorMessage>{errors.totalPages}</ErrorMessage>
+              ) : (
+                touched.totalPages && <SuccessMessage>Pages is correct!</SuccessMessage>
+              )}
             </InputWrapper>
           </Wrapper>
 

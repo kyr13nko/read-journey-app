@@ -36,5 +36,5 @@ export const recommendedFilterSchema = Yup.object().shape({
 export const addBookFilterSchema = Yup.object().shape({
   title: Yup.string().required("Title is required"),
   author: Yup.string().required("Author is required"),
-  totalPages: Yup.number().required("Page is required"),
+  totalPages: Yup.number().typeError("Pages must be a number").required("Page is required"),
 });
