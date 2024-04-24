@@ -4,7 +4,8 @@ import { selectCurrentPage, selectTotalPages } from "../../../store/books/booksS
 import { nextPage, prevPage } from "../../../store/books/booksSlice";
 
 import sprite from "../../../assets/images/sprite.svg";
-import { Chevron, Wrapper } from "./Pagination.styled";
+import { Chevron } from "./Pagination.styled";
+import { SortWrapper } from "../../../styles/GlobalStyles";
 
 const Pagination = () => {
   const dispatch = useDispatch();
@@ -12,7 +13,7 @@ const Pagination = () => {
   const totalPages = useSelector(selectTotalPages);
 
   return (
-    <Wrapper>
+    <SortWrapper>
       <Chevron disabled={currentPage === 1} onClick={() => dispatch(prevPage())}>
         <svg>
           <use href={`${sprite}#chevron-right`}></use>
@@ -23,7 +24,7 @@ const Pagination = () => {
           <use href={`${sprite}#chevron-left`}></use>
         </svg>
       </Chevron>
-    </Wrapper>
+    </SortWrapper>
   );
 };
 

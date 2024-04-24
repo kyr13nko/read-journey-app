@@ -9,4 +9,4 @@ export const fetchAddBookById = (id) => axios.post(`books/add/${id}`);
 export const fetchDelBookById = (id) => axios.delete(`books/remove/${id}`);
 
 export const fetchOwnBooks = (values) =>
-  axios.get(values ? `/books/own?status=${values}` : "/books/own");
+  axios.get(values && values !== "all" ? `/books/own?status=${values}` : "/books/own");

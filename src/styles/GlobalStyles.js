@@ -209,6 +209,19 @@ export const BookWrapper = styled.div`
   }
 `;
 
+export const SortWrapper = styled.div`
+  position: absolute;
+  top: 2.5rem;
+  right: 1.25rem;
+
+  display: flex;
+  gap: 0.5rem;
+
+  @media screen and (min-width: 768px) {
+    right: 2.5rem;
+  }
+`;
+
 export const BookList = styled.ul`
   display: flex;
   flex-wrap: wrap;

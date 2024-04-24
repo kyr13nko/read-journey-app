@@ -6,6 +6,7 @@ import { selectOwnBooks } from "../../store/books/booksSelectors";
 import NoResults from "../NoResults/NoResults";
 import MyLibraryCard from "./MyLibraryCard/MyLibraryCard";
 import { BookList, BookWrapper } from "../../styles/GlobalStyles";
+import SelectBooks from "./SelectBooks/SelectBooks";
 
 const MyLibraryBooks = () => {
   const dispatch = useDispatch();
@@ -27,6 +28,7 @@ const MyLibraryBooks = () => {
       ) : (
         <NoResults text="library" />
       )}
+      <SelectBooks />
     </BookWrapper>
   );
 };
