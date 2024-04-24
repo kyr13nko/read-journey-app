@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { ContentWrapper } from "../Dashboard.styled";
 
-export const Wrap = styled(ContentWrapper)`
+export const BlockWrapper = styled(ContentWrapper)`
   display: none;
 
   & img {
