@@ -16,6 +16,7 @@ import {
   ModalBookContent,
 } from "../../../styles/GlobalStyles";
 import { BookCardWrapper, DeleteBtn } from "./MyLibraryCard.styled";
+import { Link } from "react-router-dom";
 
 const MyLibraryCard = ({ book }) => {
   const dispatch = useDispatch();
@@ -57,7 +58,9 @@ const MyLibraryCard = ({ book }) => {
               <h3>{author}</h3>
               <p>{totalPages} pages</p>
             </ModalBookContent>
-            <ModalBookBtn type="button">Start reading</ModalBookBtn>
+            <Link to="/reading">
+              <ModalBookBtn type="button">Start reading</ModalBookBtn>
+            </Link>
           </ModalBookCard>
         </Modal>
       )}

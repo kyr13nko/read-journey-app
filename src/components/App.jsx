@@ -20,6 +20,7 @@ const Register = lazy(() => import("../pages/Register"));
 
 const Recommended = lazy(() => import("../pages/Recommended"));
 const MyLibrary = lazy(() => import("../pages/MyLibrary"));
+const Reading = lazy(() => import("../pages/Reading"));
 
 const App = () => {
   const dispatch = useDispatch();
@@ -56,6 +57,10 @@ const App = () => {
           <Route
             path="recommended"
             element={<PrivateRoute redirectTo="/register" component={<Recommended />} />}
+          />
+          <Route
+            path="reading"
+            element={<PrivateRoute redirectTo="/register" component={<Reading />} />}
           />
 
           <Route path="*" element={<Navigate to="/" />} />
