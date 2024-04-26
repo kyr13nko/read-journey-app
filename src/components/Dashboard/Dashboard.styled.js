@@ -62,3 +62,19 @@ export const StyledLink = styled(Link)`
 
   color: var(--color-text-dark);
 `;
+
+export const ReadingWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+
+  margin-top: 1.25rem;
+
+  @media screen and (min-width: 768px) {
+    margin-top: 0;
+  }
+
+  @media screen and (min-width: 1440px) {
+    margin-top: 1.25rem;
+  }
+`;

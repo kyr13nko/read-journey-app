@@ -107,6 +107,10 @@ export const Input = styled.input`
     padding-left: 7.4375rem;
   }
 
+  &[id="page"] {
+    padding-left: 6.1875rem;
+  }
+
   &::placeholder {
     font-size: 0.75rem;
     line-height: 133%;
@@ -132,8 +136,12 @@ export const Input = styled.input`
       padding-left: 8.4375rem;
     }
 
+    &[id="page"] {
+      padding-left: 6.9375rem;
+    }
+
     &::placeholder {
-      font-size: 12px;
+      font-size: 0.75rem;
       line-height: 133%;
     }
   }

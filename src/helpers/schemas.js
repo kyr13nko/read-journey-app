@@ -38,3 +38,7 @@ export const addBookFilterSchema = Yup.object().shape({
   author: Yup.string().required("Author is required"),
   totalPages: Yup.number().typeError("Pages must be a number").required("Page is required"),
 });
+
+export const addPageFilterSchema = Yup.object().shape({
+  page: Yup.number().typeError("Page must be a number").required("Page is required"),
+});
