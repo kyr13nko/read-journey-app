@@ -1,7 +1,9 @@
-// import { useState } from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { selectReadBook } from "../../store/books/booksSelectors";
+
+import Modal from "../Modal/Modal";
 
 import { useFormik } from "formik";
 import { addPageFilterSchema } from "../../helpers/schemas";
@@ -17,20 +19,30 @@ import {
   Wrapper,
 } from "./Filters.styled";
 import { ErrorMessage, MessageSvg, SuccessMessage } from "../../styles/GlobalStyles";
+import Success from "../Success/Success";
+import { getReadBookStart } from "../../store/books/booksOperations";
 
 const ReadingFilter = () => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const readBook = useSelector(selectReadBook);
+
+  const [isOpenModal, setIsOpenModal] = useState(false);
+
+  const toggleModal = () => {
+    setIsOpenModal((prev) => !prev);
+  };
 
   const formik = useFormik({
     initialValues: {
-      page: 0,
+      page: "",
     },
     validationSchema: addPageFilterSchema,
     onSubmit: async ({ page }, { resetForm }) => {
       try {
         console.log("readBook._id", readBook._id);
         console.log("page", page);
+
+        dispatch(getReadBookStart({ id: readBook._id, page }));
         resetForm();
       } catch (error) {
         console.error(error);
@@ -87,6 +99,12 @@ const ReadingFilter = () => {
           <Button type="submit">To Start</Button>
         </Form>
       </FilterWrapper>
+
+      {isOpenModal && (
+        <Modal width={342} onClose={toggleModal}>
+          <Success text="read-book" />
+        </Modal>
+      )}
     </>
   );
 };

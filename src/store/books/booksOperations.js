@@ -6,6 +6,8 @@ import {
   fetchDelBookById,
   fetchOwnBooks,
   fetchReadBook,
+  fetchReadBookFinish,
+  fetchReadBookStart,
   fetchRecommendedBooks,
 } from "../../services/booksAPI";
 
@@ -73,6 +75,34 @@ export const getOwnBooks = createAsyncThunk(
   async (status = null, { rejectWithValue }) => {
     try {
       const { data } = await fetchOwnBooks(status);
+      return data;
+    } catch (error) {
+      if (error) toast.error(error.response.data.message);
+      return rejectWithValue(error.response);
+    }
+  }
+);
+
+export const getReadBookStart = createAsyncThunk(
+  "books/readStart",
+  async (values, { rejectWithValue }) => {
+    try {
+      const { data } = await fetchReadBookStart(values);
+
+      return data;
+    } catch (error) {
+      if (error) toast.error(error.response.data.message);
+      return rejectWithValue(error.response);
+    }
+  }
+);
+
+export const getReadBookFinish = createAsyncThunk(
+  "books/readFinish",
+  async (values, { rejectWithValue }) => {
+    try {
+      const { data } = await fetchReadBookFinish(values);
+
       return data;
     } catch (error) {
       if (error) toast.error(error.response.data.message);

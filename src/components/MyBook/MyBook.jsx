@@ -10,7 +10,6 @@ import { BookWrapper } from "../../styles/GlobalStyles";
 
 const MyBook = () => {
   const readBook = useSelector(selectReadBook);
-  console.log("MyBook ---> readBook:", readBook);
   const { author, title, imageUrl, progress } = readBook;
 
   return (
