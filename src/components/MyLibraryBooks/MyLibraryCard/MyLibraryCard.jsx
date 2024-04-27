@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 
-import { delBookById } from "../../../store/books/booksOperations";
+import { delBookById, getReadBook } from "../../../store/books/booksOperations";
 
 import Modal from "../../Modal/Modal";
 
@@ -16,7 +17,6 @@ import {
   ModalBookContent,
 } from "../../../styles/GlobalStyles";
 import { BookCardWrapper, DeleteBtn } from "./MyLibraryCard.styled";
-import { Link } from "react-router-dom";
 
 const MyLibraryCard = ({ book }) => {
   const dispatch = useDispatch();
@@ -43,7 +43,7 @@ const MyLibraryCard = ({ book }) => {
           </BookCardContent>
           <DeleteBtn onClick={() => dispatch(delBookById(_id))}>
             <svg>
-              <use href={`${sprite}#delete`}></use>
+              <use href={`${sprite}#delete`} />
             </svg>
           </DeleteBtn>
         </BookCardWrapper>
@@ -59,7 +59,9 @@ const MyLibraryCard = ({ book }) => {
               <p>{totalPages} pages</p>
             </ModalBookContent>
             <Link to="/reading">
-              <ModalBookBtn type="button">Start reading</ModalBookBtn>
+              <ModalBookBtn type="button" onClick={() => dispatch(getReadBook(_id))}>
+                Start reading
+              </ModalBookBtn>
             </Link>
           </ModalBookCard>
         </Modal>

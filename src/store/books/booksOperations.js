@@ -5,6 +5,7 @@ import {
   fetchAddBookById,
   fetchDelBookById,
   fetchOwnBooks,
+  fetchReadBook,
   fetchRecommendedBooks,
 } from "../../services/booksAPI";
 
@@ -79,3 +80,14 @@ export const getOwnBooks = createAsyncThunk(
     }
   }
 );
+
+export const getReadBook = createAsyncThunk("books/read", async (id, { rejectWithValue }) => {
+  try {
+    const { data } = await fetchReadBook(id);
+
+    return data;
+  } catch (error) {
+    if (error) toast.error(error.response.data.message);
+    return rejectWithValue(error.response);
+  }
+});

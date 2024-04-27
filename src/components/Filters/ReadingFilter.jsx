@@ -1,9 +1,10 @@
 // import { useState } from "react";
-// import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+
+import { selectReadBook } from "../../store/books/booksSelectors";
 
 import { useFormik } from "formik";
 import { addPageFilterSchema } from "../../helpers/schemas";
-
 import sprite from "../../assets/images/sprite.svg";
 import {
   Button,
@@ -19,6 +20,7 @@ import { ErrorMessage, MessageSvg, SuccessMessage } from "../../styles/GlobalSty
 
 const ReadingFilter = () => {
   // const dispatch = useDispatch();
+  const readBook = useSelector(selectReadBook);
 
   const formik = useFormik({
     initialValues: {
@@ -27,6 +29,7 @@ const ReadingFilter = () => {
     validationSchema: addPageFilterSchema,
     onSubmit: async ({ page }, { resetForm }) => {
       try {
+        console.log("readBook._id", readBook._id);
         console.log("page", page);
         resetForm();
       } catch (error) {

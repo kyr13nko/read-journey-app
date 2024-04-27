@@ -16,12 +16,12 @@ const Pagination = () => {
     <SortWrapper>
       <Chevron disabled={currentPage === 1} onClick={() => dispatch(prevPage())}>
         <svg>
-          <use href={`${sprite}#chevron-right`}></use>
+          <use href={`${sprite}#chevron-right`} />
         </svg>
       </Chevron>
       <Chevron disabled={currentPage === totalPages} onClick={() => dispatch(nextPage())}>
         <svg>
-          <use href={`${sprite}#chevron-left`}></use>
+          <use href={`${sprite}#chevron-left`} />
         </svg>
       </Chevron>
     </SortWrapper>

@@ -10,3 +10,5 @@ export const fetchDelBookById = (id) => axios.delete(`books/remove/${id}`);
 
 export const fetchOwnBooks = (values) =>
   axios.get(values && values !== "all" ? `/books/own?status=${values}` : "/books/own");
+
+export const fetchReadBook = (id) => axios.get(`books/${id}`);

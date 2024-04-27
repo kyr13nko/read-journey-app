@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-
 export const Text = styled.p`
   font-size: 0.875rem;
   line-height: 129%;
@@ -22,6 +21,7 @@ export const ImageWrapper = styled.div`
   margin: 0 auto;
 
   margin-top: 0.375rem;
+  margin-bottom: 1.25rem;
 
   & img {
     width: 32px;
@@ -33,6 +33,8 @@ export const ImageWrapper = styled.div`
     height: 100px;
 
     margin-top: 2.25rem;
+
+    margin-bottom: 3.25rem;
 
     & img {
       width: 50px;

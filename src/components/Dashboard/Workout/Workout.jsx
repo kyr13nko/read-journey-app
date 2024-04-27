@@ -28,7 +28,7 @@ const Workout = () => {
         <StyledLink to="/library">My library</StyledLink>
         <Link to="/library">
           <svg width={24} height={24}>
-            <use href={`${sprite}#log-in`}></use>
+            <use href={`${sprite}#log-in`} />
           </svg>
         </Link>
       </LinkWrapper>
