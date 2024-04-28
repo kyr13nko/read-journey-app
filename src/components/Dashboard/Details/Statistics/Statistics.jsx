@@ -1,10 +1,8 @@
-import { ReadingWrapper, Title } from "../../Dashboard.styled";
-
 const Statistics = () => {
   return (
-    <ReadingWrapper>
-      <Title>Statistics</Title>
-    </ReadingWrapper>
+    <>
+      <p>Statistics content</p>
+    </>
   );
 };
 

@@ -6,8 +6,6 @@ import { useFormik } from "formik";
 import { registerSchema } from "../../helpers/schemas";
 import { register } from "../../store/auth/authOperations";
 
-import { toast } from "react-toastify";
-
 import sprite from "../../assets/images/sprite.svg";
 import {
   Button,
@@ -41,7 +39,7 @@ const RegisterForm = () => {
         dispatch(register({ name, email, password }));
         resetForm();
       } catch (error) {
-        toast.error(error);
+        console.warn(error);
       }
     },
   });

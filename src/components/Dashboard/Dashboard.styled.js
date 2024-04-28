@@ -64,6 +64,8 @@ export const StyledLink = styled(Link)`
 `;
 
 export const ReadingWrapper = styled.div`
+  position: relative;
+
   display: flex;
   flex-direction: column;
   gap: 0.875rem;
@@ -71,6 +73,8 @@ export const ReadingWrapper = styled.div`
   margin-top: 1.25rem;
 
   @media screen and (min-width: 768px) {
+    flex-grow: 1;
+
     margin-top: 0;
   }
 
