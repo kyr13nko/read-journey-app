@@ -27,3 +27,21 @@ export const Button = styled(SvgBtn)`
     height: 20px;
   }
 `;
+
+export const Wrapper = styled.div`
+  width: 295px;
+  height: 211px;
+
+  background-color: var(--color-bg-item);
+  border-radius: 0.75rem;
+
+  @media screen and (min-width: 768px) {
+    width: 321px;
+    height: 252px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 100%;
+    height: 100%;
+  }
+`;
