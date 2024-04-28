@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 
 import { selectReadBook } from "../../store/books/booksSelectors";
+import { getBookStatusAndProgress } from "../../helpers/getBookProgress";
 
 import sprite from "../../assets/images/sprite.svg";
 import imageUrlPlaceholder from "../../assets/images/imageUrl.png";
@@ -10,7 +11,9 @@ import { BookWrapper } from "../../styles/GlobalStyles";
 
 const MyBook = () => {
   const readBook = useSelector(selectReadBook);
-  const { author, title, imageUrl, progress } = readBook;
+  const bookInfo = getBookStatusAndProgress(readBook);
+
+  const { author, title, imageUrl } = readBook;
 
   return (
     <BookWrapper>
@@ -22,7 +25,7 @@ const MyBook = () => {
       </Book>
       <SvgWrapper>
         <svg>
-          {progress.status === "active" ? (
+          {bookInfo.status === "active" ? (
             <use href={`${sprite}#record-stop`} />
           ) : (
             <use href={`${sprite}#record`} />

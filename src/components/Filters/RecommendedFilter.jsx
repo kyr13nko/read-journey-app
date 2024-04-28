@@ -46,7 +46,7 @@ const RecommendedFilter = () => {
           resetForm();
         } else toast.warning("Please, choose search params!");
       } catch (error) {
-        console.error(error);
+        toast.error(error);
       }
     },
   });

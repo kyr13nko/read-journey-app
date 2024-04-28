@@ -31,7 +31,7 @@ export const getRecommendedBooks = createAsyncThunk(
       return { ...data, page };
     } catch (error) {
       if (error) toast.error(error.response.data.message);
-      return rejectWithValue(error.response);
+      return rejectWithValue(error.response.data);
     }
   }
 );
@@ -42,20 +42,19 @@ export const addBook = createAsyncThunk("books/add", async (values, { rejectWith
     return data;
   } catch (error) {
     if (error) toast.error(error.response.data.message);
-    return rejectWithValue(error.response);
+    return rejectWithValue(error.response.data);
   }
 });
 
 export const addBookById = createAsyncThunk("books/addById", async (id, { rejectWithValue }) => {
   try {
     const { data } = await fetchAddBookById(id);
-    console.log("addBookById ---> data:", data);
 
     toast.success("This book added successfully!");
     return data;
   } catch (error) {
     if (error) toast.error(error.response.data.message);
-    return rejectWithValue(error.response);
+    return rejectWithValue(error.response.data);
   }
 });
 
@@ -66,7 +65,7 @@ export const delBookById = createAsyncThunk("books/delById", async (id, { reject
     return data;
   } catch (error) {
     if (error) toast.error(error.response.data.message);
-    return rejectWithValue(error.response);
+    return rejectWithValue(error.response.data);
   }
 });
 
@@ -78,7 +77,7 @@ export const getOwnBooks = createAsyncThunk(
       return data;
     } catch (error) {
       if (error) toast.error(error.response.data.message);
-      return rejectWithValue(error.response);
+      return rejectWithValue(error.response.data);
     }
   }
 );
@@ -92,7 +91,7 @@ export const getReadBookStart = createAsyncThunk(
       return data;
     } catch (error) {
       if (error) toast.error(error.response.data.message);
-      return rejectWithValue(error.response);
+      return rejectWithValue(error.response.data);
     }
   }
 );
@@ -106,7 +105,7 @@ export const getReadBookFinish = createAsyncThunk(
       return data;
     } catch (error) {
       if (error) toast.error(error.response.data.message);
-      return rejectWithValue(error.response);
+      return rejectWithValue(error.response.data);
     }
   }
 );
@@ -118,6 +117,6 @@ export const getReadBook = createAsyncThunk("books/read", async (id, { rejectWit
     return data;
   } catch (error) {
     if (error) toast.error(error.response.data.message);
-    return rejectWithValue(error.response);
+    return rejectWithValue(error.response.data);
   }
 });

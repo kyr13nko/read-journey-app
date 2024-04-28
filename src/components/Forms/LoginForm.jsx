@@ -6,6 +6,8 @@ import { useFormik } from "formik";
 import { loginSchema } from "../../helpers/schemas";
 import { login } from "../../store/auth/authOperations";
 
+import { toast } from "react-toastify";
+
 import sprite from "../../assets/images/sprite.svg";
 import {
   Button,
@@ -38,7 +40,7 @@ const LoginForm = () => {
         dispatch(login({ email, password }));
         resetForm();
       } catch (error) {
-        console.error(error);
+        toast.error(error);
       }
     },
   });

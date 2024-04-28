@@ -9,6 +9,8 @@ import {
   delBookById,
   getOwnBooks,
   getReadBook,
+  getReadBookFinish,
+  getReadBookStart,
   getRecommendedBooks,
 } from "./booksOperations";
 import { handleFulfilled, handlePending, handleRejected } from "./booksHelpers";
@@ -16,7 +18,7 @@ import { handleFulfilled, handlePending, handleRejected } from "./booksHelpers";
 const initialState = {
   recommended: [],
   own: [],
-  read: "",
+  read: [],
   currentPage: 1,
   totalPages: 0,
   isLoading: false,
@@ -63,6 +65,14 @@ const booksSlice = createSlice({
       })
 
       .addCase(getReadBook.fulfilled, (state, { payload }) => {
+        state.read = payload;
+      })
+
+      .addCase(getReadBookStart.fulfilled, (state, { payload }) => {
+        state.read = payload;
+      })
+
+      .addCase(getReadBookFinish.fulfilled, (state, { payload }) => {
         state.read = payload;
       })
 

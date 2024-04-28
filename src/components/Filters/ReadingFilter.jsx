@@ -2,11 +2,17 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { selectReadBook } from "../../store/books/booksSelectors";
+import { getReadBookStart, getReadBookFinish } from "../../store/books/booksOperations";
+import { getBookStatusAndProgress } from "../../helpers/getBookProgress";
 
 import Modal from "../Modal/Modal";
+import Success from "../Success/Success";
 
 import { useFormik } from "formik";
 import { addPageFilterSchema } from "../../helpers/schemas";
+
+import { toast } from "react-toastify";
+
 import sprite from "../../assets/images/sprite.svg";
 import {
   Button,
@@ -19,12 +25,12 @@ import {
   Wrapper,
 } from "./Filters.styled";
 import { ErrorMessage, MessageSvg, SuccessMessage } from "../../styles/GlobalStyles";
-import Success from "../Success/Success";
-import { getReadBookStart } from "../../store/books/booksOperations";
 
 const ReadingFilter = () => {
   const dispatch = useDispatch();
   const readBook = useSelector(selectReadBook);
+
+  const bookInfo = getBookStatusAndProgress(readBook);
 
   const [isOpenModal, setIsOpenModal] = useState(false);
 
@@ -39,13 +45,12 @@ const ReadingFilter = () => {
     validationSchema: addPageFilterSchema,
     onSubmit: async ({ page }, { resetForm }) => {
       try {
-        console.log("readBook._id", readBook._id);
-        console.log("page", page);
-
-        dispatch(getReadBookStart({ id: readBook._id, page }));
+        bookInfo.status === "active"
+          ? dispatch(getReadBookFinish({ id: readBook._id, page }))
+          : dispatch(getReadBookStart({ id: readBook._id, page }));
         resetForm();
       } catch (error) {
-        console.error(error);
+        toast.error(error);
       }
     },
   });
@@ -96,7 +101,7 @@ const ReadingFilter = () => {
             </InputWrapper>
           </Wrapper>
 
-          <Button type="submit">To Start</Button>
+          <Button type="submit">{bookInfo.status === "active" ? "To Stop" : "To Start"}</Button>
         </Form>
       </FilterWrapper>
 

@@ -52,7 +52,7 @@ const AddBookFilter = () => {
           bookExists = false;
         } else toast.warning(`Such book is already in the library!`);
       } catch (error) {
-        console.error(error);
+        toast.error(error);
       }
     },
   });
