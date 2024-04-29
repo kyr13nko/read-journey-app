@@ -58,7 +58,7 @@ export const refresh = createAsyncThunk(
 
       return data;
     } catch (error) {
-      if (error) toast.error(error.response.data.message);
+      if (error) toast.warning(error.response.data.message);
       return rejectWithValue(error.response.data);
     }
   }

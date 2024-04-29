@@ -6,6 +6,7 @@ import {
   fetchDelBookById,
   fetchOwnBooks,
   fetchReadBook,
+  fetchReadBookDelete,
   fetchReadBookFinish,
   fetchReadBookStart,
   fetchRecommendedBooks,
@@ -110,6 +111,19 @@ export const getReadBookFinish = createAsyncThunk(
   }
 );
 
+export const getReadBookDelete = createAsyncThunk(
+  "books/readDelete",
+  async (values, { rejectWithValue }) => {
+    try {
+      const { data } = await fetchReadBookDelete(values);
+
+      return data;
+    } catch (error) {
+      if (error) toast.error(error.response.data.message);
+      return rejectWithValue(error.response.data);
+    }
+  }
+);
 export const getReadBook = createAsyncThunk("books/read", async (id, { rejectWithValue }) => {
   try {
     const { data } = await fetchReadBook(id);
