@@ -64,3 +64,50 @@ export const PercentageCircle = styled.circle`
   transform: rotate(-90deg);
   transform-origin: 75px 75px;
 `;
+
+export const ContentWrapper = styled.div`
+  display: flex;
+  gap: 16px;
+`;
+
+export const ContentBlock = styled.div`
+  width: 14px;
+  height: 14px;
+
+  background-color: var(--color-green);
+  border-radius: 4px;
+`;
+
+export const Content = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  @media screen and (min-width: 768px) {
+    gap: 8px;
+  }
+
+  p {
+    font-size: 14px;
+    line-height: 129%;
+    letter-spacing: -0.02em;
+
+    @media screen and (min-width: 768px) {
+      font-size: 20px;
+      line-height: 100%;
+    }
+  }
+
+  span {
+    font-size: 10px;
+    line-height: 120%;
+    letter-spacing: -0.02em;
+    text-align: center;
+    color: var(--color-text-dark);
+
+    @media screen and (min-width: 768px) {
+      font-size: 12px;
+      line-height: 117%;
+    }
+  }
+`;

@@ -4,6 +4,9 @@ import {
   Circle,
   CircleSvg,
   CircleWrapper,
+  Content,
+  ContentBlock,
+  ContentWrapper,
   PercentageCircle,
   StatisticsWrapper,
 } from "./Statistics.styled";
@@ -60,10 +63,13 @@ const Statistics = () => {
           </text>
         </CircleSvg>
       </CircleWrapper>
-      <div>
-        <p>{progressPercentage} %</p>
-        <p>{totalReadPages} pages</p>
-      </div>
+      <ContentWrapper>
+        <ContentBlock />
+        <Content>
+          <p>{progressPercentage} %</p>
+          <span>{totalReadPages} pages read</span>
+        </Content>
+      </ContentWrapper>
     </StatisticsWrapper>
   );
 };
