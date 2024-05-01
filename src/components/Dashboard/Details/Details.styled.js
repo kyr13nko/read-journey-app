@@ -29,11 +29,16 @@ export const Button = styled(SvgBtn)`
 `;
 
 export const Wrapper = styled.div`
-  width: 295px;
-  height: 211px;
+  width: 100%;
+  height: 100%;
 
   background-color: var(--color-bg-item);
   border-radius: 0.75rem;
+
+  @media screen and (min-width: 375px) {
+    width: 295px;
+    height: 211px;
+  }
 
   @media screen and (min-width: 768px) {
     width: 321px;
