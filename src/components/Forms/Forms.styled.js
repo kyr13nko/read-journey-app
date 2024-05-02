@@ -113,7 +113,7 @@ export const Input = styled.input`
     }
 
     &::placeholder {
-      font-size: 12px;
+      font-size: 0.75rem;
       line-height: 133%;
     }
   }

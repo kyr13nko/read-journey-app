@@ -298,14 +298,14 @@ export const ModalBookContent = styled.div`
   align-items: center;
 
   & img {
-    width: 140px;
-    height: 213px;
+    width: 8.75rem;
+    height: 13.3125rem;
 
     border-radius: 0.5rem;
 
     @media screen and (min-width: 768px) {
-      width: 153px;
-      height: 233px;
+      width: 9.5625rem;
+      height: 14.5625rem;
     }
   }
 

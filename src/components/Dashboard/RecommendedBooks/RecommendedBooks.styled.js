@@ -7,7 +7,7 @@ export const BlockWrapper = styled(ContentWrapper)`
   gap: 0.875rem;
 
   @media screen and (min-width: 768px) {
-    width: 313px;
+    width: 19.5625rem;
   }
 `;
 
@@ -22,7 +22,7 @@ export const List = styled.ul`
 `;
 
 export const Card = styled.li`
-  width: 71px;
+  width: 4.4375rem;
 
   & img {
     height: 6.6875rem;

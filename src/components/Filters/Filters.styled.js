@@ -8,10 +8,10 @@ export const FilterWrapper = styled.div`
   width: 100%;
 
   @media screen and (min-width: 768px) {
-    max-width: 295px;
+    max-width: 18.4375rem;
   }
   @media screen and (min-width: 1440px) {
-    max-width: 313px;
+    max-width: 19.5625rem;
   }
 `;
 
@@ -119,7 +119,7 @@ export const Input = styled.input`
   }
 
   @media screen and (min-width: 768px) {
-    font-size: 14px;
+    font-size: 0.875rem;
     line-height: 129%;
 
     padding: 1rem 0.875rem;

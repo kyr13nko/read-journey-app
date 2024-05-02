@@ -6,14 +6,14 @@ export const DetailsWrapper = styled.div`
 
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 1.25rem;
 
   @media screen and (min-width: 768px) {
-    gap: 16px;
+    gap: 1rem;
   }
 
   @media screen and (min-width: 1440px) {
-    gap: 20px;
+    gap: 1.25rem;
   }
 `;
 
@@ -23,7 +23,7 @@ export const StatisticsText = styled.p`
   @media screen and (min-width: 1440px) {
     display: block;
 
-    font-size: 14px;
+    font-size: 0.875rem;
     line-height: 129%;
     letter-spacing: -0.02em;
     color: var(--color-text-dark);
@@ -39,7 +39,7 @@ export const BtnWrapper = styled.div`
   gap: 0.5rem;
 
   @media screen and (min-width: 768px) {
-    right: 16px;
+    right: 1rem;
   }
 
   @media screen and (min-width: 1440px) {
@@ -48,12 +48,12 @@ export const BtnWrapper = styled.div`
 `;
 
 export const Button = styled(SvgBtn)`
-  width: 16px;
-  height: 16px;
+  width: 1rem;
+  height: 1rem;
 
   @media screen and (min-width: 768px) {
-    width: 20px;
-    height: 20px;
+    width: 1.25rem;
+    height: 1.25rem;
   }
 `;
 
@@ -65,13 +65,13 @@ export const Wrapper = styled.div`
   border-radius: 0.75rem;
 
   @media screen and (min-width: 375px) {
-    width: 295px;
-    height: 211px;
+    width: 18.4375rem;
+    height: 13.1875rem;
   }
 
   @media screen and (min-width: 768px) {
-    width: 321px;
-    height: 252px;
+    width: 20.0625rem;
+    height: 15.75rem;
   }
 
   @media screen and (min-width: 1440px) {

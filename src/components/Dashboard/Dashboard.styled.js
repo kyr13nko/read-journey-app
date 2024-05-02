@@ -38,7 +38,7 @@ export const ContentWrapper = styled.div`
 
 export const Title = styled.h3`
   font-weight: 700;
-  font-size: 18px;
+  font-size: 1.125rem;
   line-height: 100%;
   letter-spacing: -0.02em;
 

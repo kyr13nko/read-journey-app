@@ -84,7 +84,7 @@ export const getOwnBooks = createAsyncThunk(
 );
 
 export const getReadBookStart = createAsyncThunk(
-  "books/readStart",
+  "books/read/start",
   async (values, { rejectWithValue }) => {
     try {
       const { data } = await fetchReadBookStart(values);
@@ -98,7 +98,7 @@ export const getReadBookStart = createAsyncThunk(
 );
 
 export const getReadBookFinish = createAsyncThunk(
-  "books/readFinish",
+  "books/read/finish",
   async (values, { rejectWithValue }) => {
     try {
       const { data } = await fetchReadBookFinish(values);
@@ -112,10 +112,12 @@ export const getReadBookFinish = createAsyncThunk(
 );
 
 export const getReadBookDelete = createAsyncThunk(
-  "books/readDelete",
+  "books/read/delete",
   async (values, { rejectWithValue }) => {
+    const query = new URLSearchParams(values).toString();
+
     try {
-      const { data } = await fetchReadBookDelete(values);
+      const { data } = await fetchReadBookDelete(query);
 
       return data;
     } catch (error) {
@@ -124,6 +126,7 @@ export const getReadBookDelete = createAsyncThunk(
     }
   }
 );
+
 export const getReadBook = createAsyncThunk("books/read", async (id, { rejectWithValue }) => {
   try {
     const { data } = await fetchReadBook(id);

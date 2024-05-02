@@ -5,47 +5,47 @@ export const Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 0.625rem;
 
   & img {
-    width: 50px;
-    height: 50px;
+    width: 3.125rem;
+    height: 3.125rem;
   }
 
   @media screen and (min-width: 768px) {
-    gap: 14px;
+    gap: 0.875rem;
 
     & img {
-      width: 70px;
-      height: 70px;
+      width: 4.375rem;
+      height: 4.375rem;
     }
   }
 `;
 
 export const Title = styled.p`
   font-weight: 700;
-  font-size: 18px;
+  font-size: 1.125rem;
   line-height: 100%;
   letter-spacing: -0.02em;
   text-align: center;
 
-  margin-top: 10px;
+  margin-top: 0.625rem;
 
   @media screen and (min-width: 768px) {
-    font-size: 20px;
+    font-size: 1.25rem;
 
-    margin-top: 18px;
+    margin-top: 1.125rem;
   }
 `;
 
 export const Text = styled.p`
-  font-size: 14px;
+  font-size: 0.875rem;
   line-height: 129%;
   letter-spacing: -0.02em;
   text-align: center;
   color: var(--color-text-dark);
 
-  width: 242px;
+  width: 15.125rem;
 
   & span {
     color: var(--color-text);

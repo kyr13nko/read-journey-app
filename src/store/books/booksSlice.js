@@ -9,6 +9,7 @@ import {
   delBookById,
   getOwnBooks,
   getReadBook,
+  getReadBookDelete,
   getReadBookFinish,
   getReadBookStart,
   getRecommendedBooks,
@@ -73,6 +74,10 @@ const booksSlice = createSlice({
       })
 
       .addCase(getReadBookFinish.fulfilled, (state, { payload }) => {
+        state.read = payload;
+      })
+
+      .addCase(getReadBookDelete.fulfilled, (state, { payload }) => {
         state.read = payload;
       })
 

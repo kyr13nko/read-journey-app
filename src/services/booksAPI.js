@@ -15,6 +15,6 @@ export const fetchReadBookStart = (values) => axios.post("books/reading/start", 
 
 export const fetchReadBookFinish = (values) => axios.post("books/reading/finish", values);
 
-export const fetchReadBookDelete = (values) => axios.delete("books/reading", values);
+export const fetchReadBookDelete = (values) => axios.delete(`books/reading?${values}`);
 
 export const fetchReadBook = (id) => axios.get(`books/${id}`);

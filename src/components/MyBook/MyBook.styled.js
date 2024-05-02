@@ -46,7 +46,7 @@ export const Book = styled.div`
       font-size: 1.25rem;
       line-height: 100%;
 
-      margin-top: 25px;
+      margin-top: 1.5625rem;
     }
   }
 
@@ -88,7 +88,7 @@ export const SvgWrapper = styled.div`
   }
 
   @media screen and (min-width: 1440px) {
-    margin-top: 25px;
-    margin-bottom: 20px;
+    margin-top: 1.5625rem;
+    margin-bottom: 1.25rem;
   }
 `;

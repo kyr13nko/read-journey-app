@@ -25,24 +25,24 @@ export const ImageWrapper = styled.div`
   justify-content: center;
   align-items: center;
 
-  width: 100px;
-  height: 100px;
+  width: 6.25rem;
+  height: 6.25rem;
 
   background-color: var(--color-bg-item);
   border-radius: 50%;
 
   & img {
-    width: 50px;
-    height: 50px;
+    width: 3.125rem;
+    height: 3.125rem;
   }
 
   @media screen and (min-width: 1440px) {
-    width: 130px;
-    height: 130px;
+    width: 8.125rem;
+    height: 8.125rem;
 
     & img {
-      width: 70px;
-      height: 70px;
+      width: 4.375rem;
+      height: 4.375rem;
     }
   }
 `;

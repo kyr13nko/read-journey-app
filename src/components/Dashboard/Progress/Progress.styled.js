@@ -12,8 +12,8 @@ export const ImageWrapper = styled.div`
   justify-content: center;
   align-items: center;
 
-  width: 80px;
-  height: 80px;
+  width: 5rem;
+  height: 5rem;
 
   background-color: var(--color-bg-item);
   border-radius: 50%;
@@ -24,21 +24,21 @@ export const ImageWrapper = styled.div`
   margin-bottom: 1.25rem;
 
   & img {
-    width: 32px;
-    height: 32px;
+    width: 2rem;
+    height: 2rem;
   }
 
   @media screen and (min-width: 768px) {
-    width: 100px;
-    height: 100px;
+    width: 6.25rem;
+    height: 6.25rem;
 
     margin-top: 2.25rem;
 
     margin-bottom: 3.25rem;
 
     & img {
-      width: 50px;
-      height: 50px;
+      width: 3.125rem;
+      height: 3.125rem;
     }
   }
 

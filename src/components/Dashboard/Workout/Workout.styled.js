@@ -7,7 +7,7 @@ export const BlockWrapper = styled(ContentWrapper)`
   gap: 1.25rem;
 
   @media screen and (min-width: 768px) {
-    width: 313px;
+    width: 19.5625rem;
   }
 `;
 
@@ -17,7 +17,7 @@ export const List = styled.ul`
   gap: 1.25rem;
 
   @media screen and (min-width: 768px) {
-    width: 253px;
+    width: 15.8125rem;
 
     margin-top: 1.25rem;
   }
@@ -33,8 +33,8 @@ export const Number = styled.div`
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  width: 40px;
-  height: 40px;
+  width: 2.5rem;
+  height: 2.5rem;
   background-color: var(--color-text);
   color: var(--color-bg-el);
   border-radius: 50%;

@@ -52,7 +52,7 @@ export const customStyles = {
       position: "relative",
     },
     "&::-webkit-scrollbar-thumb": {
-      borderRadius: "12px",
+      borderRadius: "0.75rem",
       background: "var(--color-text-dark)",
     },
     "&::-webkit-scrollbar-track": {
