@@ -91,5 +91,9 @@
 <path fill="none" stroke="#686868" style="stroke: var(--color1, #686868)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.2857" d="M13.333 14.667v8"></path>
 <path fill="none" stroke="#686868" style="stroke: var(--color1, #686868)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.2857" d="M18.667 14.667v8"></path>
 </symbol>
+<symbol id="block" viewBox="0 0 77 32">
+<path fill="#30b94d" style="fill: var(--color1, #30b94d)" opacity="0.2" d="M76.8 1.28l-75.52 10.779v19.941h75.52v-30.72z"></path>
+<path fill="#30b94d" style="fill: var(--color1, #30b94d)" d="M74.924 0.204l-73.288 11.849c-0.698 0.113-1.172 0.77-1.059 1.468l0.204 1.264c0.113 0.698 0.77 1.172 1.468 1.059l73.288-11.849c0.698-0.113 1.172-0.77 1.059-1.468l-0.204-1.264c-0.113-0.698-0.77-1.172-1.468-1.059z"></path>
+</symbol>
 </defs>
 </svg>
