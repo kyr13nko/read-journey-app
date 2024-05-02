@@ -15,36 +15,45 @@ import { selectReadBook } from "../../../../store/books/booksSelectors";
 
 const Statistics = () => {
   const readBook = useSelector(selectReadBook);
-  console.log("Statistics ---> readBook:", readBook);
 
-  const [fillPercentage, setFillPercentage] = useState(0);
+  // const readPages = readBook?.progress[readBook.progress?.length - 1].finishPage;
 
-  function calculateProgress(bookData) {
-    // Обчислює загальну кількість прочитаних сторінок за допомогою reduce
-    const totalReadPages = bookData.progress.reduce((acc, progressEntry) => {
-      return acc + (progressEntry.finishPage - progressEntry.startPage + 1);
-    }, 0);
+  // const maxFinishPage = readBook?.progress.reduce((max, progressEntry) => {
+  //   return progressEntry.finishPage > max ? progressEntry.finishPage : max;
+  // }, 0);
 
-    // Обчислює відсоток прочитаних сторінок
-    const totalPages = bookData.totalPages;
-    const progressPercentage = (totalReadPages / totalPages) * 100;
+  // const totalPages = readBook?.totalPages;
 
-    // Повертає результат
-    return {
-      totalReadPages: totalReadPages,
-      progressPercentage: progressPercentage.toFixed(2),
-    };
-  }
+  const calculateProgress = (readBook) => {
+    let uniquePagesRead = new Set();
 
-  const { totalReadPages, progressPercentage } = calculateProgress(readBook);
+    if (readBook) {
+      readBook.progress.forEach((progressEntry) => {
+        for (let i = progressEntry.startPage; i <= progressEntry.finishPage; i++) {
+          uniquePagesRead.add(i);
+        }
+      });
+    }
 
-  useEffect(() => {
-    setFillPercentage(progressPercentage);
-  }, [progressPercentage]);
+    const totalPages = readBook?.totalPages;
+    const totalUniquePages = totalPages; // Якщо унікальні сторінки йдуть по порядку від 1 до N
+
+    const progressPercentage = Math.round((uniquePagesRead.size / totalUniquePages) * 100);
+
+    if (uniquePagesRead.size >= totalUniquePages) {
+      return { percentage: 100, pagesRead: uniquePagesRead.size };
+    } else {
+      return { percentage: progressPercentage, pagesRead: uniquePagesRead.size };
+    }
+  };
+
+  const { percentage, pagesRead } = calculateProgress(readBook);
+
+  // useEffect(() => {}, []);
 
   const radius = 65;
   const circumference = 2 * Math.PI * radius;
-  const strokeDashoffset = ((100 - fillPercentage) / 100) * circumference;
+  const strokeDashoffset = ((100 - percentage) / 100) * circumference;
 
   return (
     <StatisticsWrapper>
@@ -66,8 +75,8 @@ const Statistics = () => {
       <ContentWrapper>
         <ContentBlock />
         <Content>
-          <p>{progressPercentage} %</p>
-          <span>{totalReadPages} pages read</span>
+          <p>{percentage} %</p>
+          <span>{pagesRead} pages read</span>
         </Content>
       </ContentWrapper>
     </StatisticsWrapper>

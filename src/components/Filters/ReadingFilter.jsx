@@ -30,6 +30,8 @@ const ReadingFilter = () => {
   const dispatch = useDispatch();
   const readBook = useSelector(selectReadBook);
 
+  const totalPages = readBook?.totalPages;
+
   const bookInfo = getBookStatusAndProgress(readBook);
 
   const [isOpenModal, setIsOpenModal] = useState(false);
@@ -45,9 +47,13 @@ const ReadingFilter = () => {
     validationSchema: addPageFilterSchema,
     onSubmit: async ({ page }, { resetForm }) => {
       try {
-        bookInfo.status === "active"
-          ? dispatch(getReadBookFinish({ id: readBook._id, page }))
-          : dispatch(getReadBookStart({ id: readBook._id, page }));
+        if (page > totalPages) {
+          return toast.warning("Value is greater than the total number of pages!");
+        } else {
+          bookInfo.status === "active"
+            ? dispatch(getReadBookFinish({ id: readBook._id, page }))
+            : dispatch(getReadBookStart({ id: readBook._id, page }));
+        }
         resetForm();
       } catch (error) {
         toast.error(error);

@@ -1,6 +1,35 @@
 import styled from "styled-components";
 import { SvgBtn } from "../../../styles/GlobalStyles";
 
+export const DetailsWrapper = styled.div`
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  @media screen and (min-width: 768px) {
+    gap: 16px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    gap: 20px;
+  }
+`;
+
+export const StatisticsText = styled.p`
+  display: none;
+
+  @media screen and (min-width: 1440px) {
+    display: block;
+
+    font-size: 14px;
+    line-height: 129%;
+    letter-spacing: -0.02em;
+    color: var(--color-text-dark);
+  }
+`;
+
 export const BtnWrapper = styled.div`
   position: absolute;
   top: 0;

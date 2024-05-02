@@ -5,8 +5,8 @@ import Statistics from "./Statistics/Statistics";
 
 import sprite from "../../../assets/images/sprite.svg";
 
-import { ReadingWrapper, Title } from "../Dashboard.styled";
-import { BtnWrapper, Button } from "./Details.styled";
+import { Title } from "../Dashboard.styled";
+import { BtnWrapper, Button, DetailsWrapper, StatisticsText } from "./Details.styled";
 
 const Details = () => {
   const [detailsPage, setDetailsPage] = useState("dairy");
@@ -19,8 +19,18 @@ const Details = () => {
   };
 
   return (
-    <ReadingWrapper>
+    <DetailsWrapper>
       <Title>{detailsPage === "dairy" ? "Dairy" : "Statistics"}</Title>
+
+      {detailsPage === "statistics" ? (
+        <StatisticsText>
+          Each page, each chapter is a new round of knowledge, a new step towards understanding. By
+          rewriting statistics, we create our own reading history.
+        </StatisticsText>
+      ) : null}
+
+      {detailsPage === "dairy" ? <Dairy /> : <Statistics />}
+
       <BtnWrapper>
         <Button onClick={handleClickDairyBtn}>
           <svg>
@@ -41,8 +51,7 @@ const Details = () => {
           </svg>
         </Button>
       </BtnWrapper>
-      {detailsPage === "dairy" ? <Dairy /> : <Statistics />}
-    </ReadingWrapper>
+    </DetailsWrapper>
   );
 };
 
