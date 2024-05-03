@@ -46,30 +46,32 @@ const Dairy = () => {
   return (
     <DairyWrapper>
       <List>
-        {Object.entries(groupBooksByDate()).map(([date, { books, totalReadPages }]) => (
-          <DateContent key={date}>
-            <div>
-              <Marker />
-              <DateText>{convertDate(date)}</DateText>
-              <TotalPages>{totalReadPages} pages</TotalPages>
-            </div>
-            <ReadList>
-              {books.map((item) => (
-                <ReadItem key={item._id}>
-                  <p>{item.finishPage} page finish</p>
-                  <ReadSvg>
-                    <use href={`${sprite}#block`} />
-                  </ReadSvg>
-                  <DeleteBtn type="button" onClick={() => handleDelBtnClick(item._id)}>
-                    <svg>
-                      <use href={`${sprite}#trash`} />
-                    </svg>
-                  </DeleteBtn>
-                </ReadItem>
-              ))}
-            </ReadList>
-          </DateContent>
-        ))}
+        {Object.entries(groupBooksByDate())
+          .reverse()
+          .map(([date, { books, totalReadPages }], index) => (
+            <DateContent key={date}>
+              <div>
+                <Marker isLastDate={index === 0} />
+                <DateText isLastDate={index === 0}>{convertDate(date)}</DateText>
+                <TotalPages>{totalReadPages} pages</TotalPages>
+              </div>
+              <ReadList>
+                {books.map((item) => (
+                  <ReadItem key={item._id}>
+                    <p>{item.finishPage} page finish</p>
+                    <ReadSvg>
+                      <use href={`${sprite}#block`} />
+                    </ReadSvg>
+                    <DeleteBtn type="button" onClick={() => handleDelBtnClick(item._id)}>
+                      <svg>
+                        <use href={`${sprite}#trash`} />
+                      </svg>
+                    </DeleteBtn>
+                  </ReadItem>
+                ))}
+              </ReadList>
+            </DateContent>
+          ))}
       </List>
     </DairyWrapper>
   );

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { SvgBtn } from "../../../../styles/GlobalStyles";
 import { Wrapper } from "../Details.styled";
 
@@ -8,30 +8,69 @@ export const DairyWrapper = styled(Wrapper)`
   flex-direction: column;
   gap: 1.125rem;
 
-  padding: 16px 16px 16px 23px;
+  height: 13.1875rem;
+
+  padding: 1rem;
 
   @media screen and (min-width: 768px) {
     gap: 1rem;
+
+    height: 15.75rem;
   }
 
   @media screen and (min-width: 1440px) {
     gap: 1.375rem;
 
-    padding: 20px;
+    padding: 1.25rem;
+
+    height: 100%;
+    max-height: 23.3125rem;
   }
 `;
 
 export const List = styled.ul`
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: 0.3125rem;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--color-bg-el);
+    border-radius: 0.5rem;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: var(--color-green);
+  }
+
+  @media screen and (min-width: 1440px) {
+    gap: 2.5rem;
+  }
+
   &::before {
     content: "";
     display: block;
     position: absolute;
     top: 1.25rem;
+    left: 1.4375rem;
 
-    width: 2px;
+    width: 0.125rem;
     height: calc(100% - 2.5rem);
 
     background-color: var(--color-bg-el);
+
+    @media screen and (min-width: 768px) {
+      left: 1.5625rem;
+    }
+
+    @media screen and (min-width: 1440px) {
+      left: 1.8125rem;
+    }
   }
 `;
 
@@ -42,7 +81,7 @@ export const DateContent = styled.li`
   flex-direction: column;
   gap: 1rem;
 
-  padding-left: 1.25rem;
+  padding: 0 0.5rem 0 1.875rem;
 
   @media screen and (min-width: 1440px) {
     gap: 1.75rem;
@@ -56,62 +95,70 @@ export const DateContent = styled.li`
 
 export const Marker = styled.div`
   position: absolute;
-  /* top: 2px; */
-  left: -7px;
+  left: 0;
 
-  width: 16px;
-  height: 16px;
+  width: 1rem;
+  height: 1rem;
 
   background-color: var(--color-bg);
-  border: 4px solid var(--color-text);
-  border-radius: 4px;
+  border: 4px solid var(--color-text-dark);
+  border-radius: 0.25rem;
+
+  ${(props) =>
+    props.isLastDate &&
+    css`
+      border-color: var(--color-text);
+    `}
 
   @media screen and (min-width: 768px) {
-    /* top: 2px; */
-    left: -9px;
+    /* left: -0.5625rem; */
 
-    width: 20px;
-    height: 20px;
+    width: 1.25rem;
+    height: 1.25rem;
 
-    border-width: 5px;
+    border-width: 0.3125rem;
   }
 `;
 
 export const DateText = styled.p`
   font-weight: 700;
-  font-size: 12px;
+  font-size: 0.75rem;
   line-height: 133%;
   letter-spacing: 0.02em;
-  color: var(--color-text);
+  color: var(--color-text-dark);
+
+  ${(props) =>
+    props.isLastDate &&
+    css`
+      color: var(--color-text);
+    `}
 
   @media screen and (min-width: 768px) {
-    font-size: 16px;
+    font-size: 1rem;
     line-height: 112%;
   }
 `;
 
 export const TotalPages = styled.p`
-  font-size: 12px;
+  font-size: 0.75rem;
   line-height: 133%;
   letter-spacing: -0.02em;
   color: var(--color-text-dark);
 
   @media screen and (min-width: 768px) {
-    font-size: 14px;
+    font-size: 0.875rem;
     line-height: 129%;
     letter-spacing: -0.02em;
   }
 `;
 
-export const ReadList = styled.ul`
-  /* overflow: hidden auto; */
-`;
+export const ReadList = styled.ul``;
 
 export const ReadItem = styled.li``;
 
 export const ReadSvg = styled.svg`
-  width: 60px;
-  height: 25px;
+  width: 3.75rem;
+  height: 1.5625rem;
 `;
 
 export const DeleteBtn = styled(SvgBtn)`

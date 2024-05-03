@@ -31,6 +31,10 @@ export const Book = styled.div`
       width: 10.5625rem;
       height: 16rem;
     }
+    @media screen and (min-width: 1440px) {
+      width: 14rem;
+      height: 21.25rem;
+    }
   }
 
   & h4 {
