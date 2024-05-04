@@ -24,7 +24,7 @@ export const DairyWrapper = styled(Wrapper)`
     padding: 1.25rem;
 
     height: 100%;
-    max-height: 23.3125rem;
+    max-height: 23.9375rem;
   }
 `;
 
