@@ -1,8 +1,18 @@
-# React + Vite
+# Read Journey
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Description
 
-Currently, two official plugins are available:
+The Read Journey app is created for users ...
+[Repository on GitHub](https://github.com/kyr13nko/read-journey-app) | [Live page on Vercel](https://read-journey-app.vercel.app/register) | [Design on Figma](https://www.figma.com/design/z3m0rdBcEfLTJUBDkAKhWQ/ReadJourney)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Technologies
+
+`HTML5/CSS3` `JavaScript` `React` `Vite` `React Toolkit` `React Router` `Firebase` `Axios` `Formik & Yup` `Responsive design` `Styled components`
+
+## Structure
+
+**_Home Page:_** 
+
+## Contributor
+
+Hryhorii Kyriienko: [GitHub](https://github.com/kyr13nko) | [LinkedIn](https://www.linkedin.com/in/hryhorii-kyriienko/) | [Telegram](https://t.me/kyr13nko)
