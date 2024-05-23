@@ -7,7 +7,7 @@ The Read Journey app is created for users ...
 
 ## Technologies
 
-`HTML5/CSS3` `JavaScript` `React` `Vite` `React Toolkit` `React Router` `Firebase` `Axios` `Formik & Yup` `Responsive design` `Styled components`
+`HTML5/CSS3` `JavaScript` `React` `Vite` `React Toolkit` `React Router` `Axios` `Formik & Yup` `Responsive design` `Styled components`
 
 ## Structure
 
