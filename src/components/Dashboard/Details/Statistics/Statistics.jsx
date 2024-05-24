@@ -16,14 +16,6 @@ import { selectReadBook } from "../../../../store/books/booksSelectors";
 const Statistics = () => {
   const readBook = useSelector(selectReadBook);
 
-  // const readPages = readBook?.progress[readBook.progress?.length - 1].finishPage;
-
-  // const maxFinishPage = readBook?.progress.reduce((max, progressEntry) => {
-  //   return progressEntry.finishPage > max ? progressEntry.finishPage : max;
-  // }, 0);
-
-  // const totalPages = readBook?.totalPages;
-
   const calculateProgress = (readBook) => {
     let uniquePagesRead = new Set();
 
@@ -36,7 +28,7 @@ const Statistics = () => {
     }
 
     const totalPages = readBook?.totalPages;
-    const totalUniquePages = totalPages; // Якщо унікальні сторінки йдуть по порядку від 1 до N
+    const totalUniquePages = totalPages;
 
     const progressPercentage = Math.round((uniquePagesRead.size / totalUniquePages) * 100);
 
@@ -48,8 +40,6 @@ const Statistics = () => {
   };
 
   const { percentage, pagesRead } = calculateProgress(readBook);
-
-  // useEffect(() => {}, []);
 
   const radius = 65;
   const circumference = 2 * Math.PI * radius;

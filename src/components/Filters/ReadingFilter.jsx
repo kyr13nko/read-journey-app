@@ -50,6 +50,11 @@ const ReadingFilter = () => {
         if (page > totalPages) {
           return toast.warning("Value is greater than the total number of pages!");
         } else {
+          if (+page === totalPages) {
+            toggleModal();
+            console.log("123", 123);
+          }
+
           bookInfo.status === "active"
             ? dispatch(getReadBookFinish({ id: readBook._id, page }))
             : dispatch(getReadBookStart({ id: readBook._id, page }));

@@ -24,6 +24,7 @@ import {
   PagesTotal,
 } from "./Dairy.styled";
 import { convertDate } from "../../../../helpers/convertDate";
+import { getPercentage } from "../../../../helpers/getPercentage";
 
 const Dairy = () => {
   const dispatch = useDispatch();
@@ -41,7 +42,7 @@ const Dairy = () => {
       }
 
       groupedBooks[date].books.push(item);
-      groupedBooks[date].totalReadPages += item.finishPage - item.startPage;
+      groupedBooks[date].totalReadPages += item.finishPage - item.startPage + 1;
       return groupedBooks;
     }, {});
   };
@@ -63,24 +64,28 @@ const Dairy = () => {
                 <TotalPages>{totalReadPages ? `${totalReadPages} pages` : `Reading...`}</TotalPages>
               </PagesTotal>
               <ReadList>
-                {books.map((item) => (
-                  <ReadItem key={item._id}>
+                {books.reverse().map(({ _id, startPage, finishPage }) => (
+                  <ReadItem key={_id}>
                     <PagesLeft>
-                      <PagesPercentage>%</PagesPercentage>
-                      <PagesMinutes>minutes</PagesMinutes>
+                      <PagesPercentage>
+                        {finishPage
+                          ? `${getPercentage(startPage, finishPage + 1, readBook.totalPages)}%`
+                          : `Reading...`}
+                      </PagesPercentage>
+                      {finishPage && <PagesMinutes>{}minutes</PagesMinutes>}
                     </PagesLeft>
                     <PagesRight>
                       <PagesGraph>
                         <ReadSvg>
                           <use href={`${sprite}#block`} />
                         </ReadSvg>
-                        <DeleteBtn type="button" onClick={() => handleDelBtnClick(item._id)}>
+                        <DeleteBtn type="button" onClick={() => handleDelBtnClick(_id)}>
                           <svg>
                             <use href={`${sprite}#trash`} />
                           </svg>
                         </DeleteBtn>
                       </PagesGraph>
-                      <PagesPerHour>pages per hour</PagesPerHour>
+                      {finishPage && <PagesPerHour>pages per hour</PagesPerHour>}
                     </PagesRight>
                   </ReadItem>
                 ))}
