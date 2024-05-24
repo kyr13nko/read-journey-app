@@ -15,6 +15,13 @@ import {
   TotalPages,
   ReadItem,
   ReadSvg,
+  PagesPerHour,
+  PagesGraph,
+  PagesRight,
+  PagesLeft,
+  PagesPercentage,
+  PagesMinutes,
+  PagesTotal,
 } from "./Dairy.styled";
 import { convertDate } from "../../../../helpers/convertDate";
 
@@ -50,23 +57,31 @@ const Dairy = () => {
           .reverse()
           .map(([date, { books, totalReadPages }], index) => (
             <DateContent key={date}>
-              <div>
-                <Marker isLastDate={index === 0} />
-                <DateText isLastDate={index === 0}>{convertDate(date)}</DateText>
-                <TotalPages>{totalReadPages} pages</TotalPages>
-              </div>
+              <PagesTotal>
+                <Marker $isLastDate={index === 0} />
+                <DateText $isLastDate={index === 0}>{convertDate(date)}</DateText>
+                <TotalPages>{totalReadPages ? `${totalReadPages} pages` : `Reading...`}</TotalPages>
+              </PagesTotal>
               <ReadList>
                 {books.map((item) => (
                   <ReadItem key={item._id}>
-                    <p>{item.finishPage} page finish</p>
-                    <ReadSvg>
-                      <use href={`${sprite}#block`} />
-                    </ReadSvg>
-                    <DeleteBtn type="button" onClick={() => handleDelBtnClick(item._id)}>
-                      <svg>
-                        <use href={`${sprite}#trash`} />
-                      </svg>
-                    </DeleteBtn>
+                    <PagesLeft>
+                      <PagesPercentage>%</PagesPercentage>
+                      <PagesMinutes>minutes</PagesMinutes>
+                    </PagesLeft>
+                    <PagesRight>
+                      <PagesGraph>
+                        <ReadSvg>
+                          <use href={`${sprite}#block`} />
+                        </ReadSvg>
+                        <DeleteBtn type="button" onClick={() => handleDelBtnClick(item._id)}>
+                          <svg>
+                            <use href={`${sprite}#trash`} />
+                          </svg>
+                        </DeleteBtn>
+                      </PagesGraph>
+                      <PagesPerHour>pages per hour</PagesPerHour>
+                    </PagesRight>
                   </ReadItem>
                 ))}
               </ReadList>

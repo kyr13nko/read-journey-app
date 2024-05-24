@@ -86,11 +86,11 @@ export const DateContent = styled.li`
   @media screen and (min-width: 1440px) {
     gap: 1.75rem;
   }
+`;
 
-  & div {
-    display: flex;
-    justify-content: space-between;
-  }
+export const PagesTotal = styled.div`
+  display: flex;
+  justify-content: space-between;
 `;
 
 export const Marker = styled.div`
@@ -105,7 +105,7 @@ export const Marker = styled.div`
   border-radius: 0.25rem;
 
   ${(props) =>
-    props.isLastDate &&
+    props.$isLastDate &&
     css`
       border-color: var(--color-text);
     `}
@@ -128,7 +128,7 @@ export const DateText = styled.p`
   color: var(--color-text-dark);
 
   ${(props) =>
-    props.isLastDate &&
+    props.$isLastDate &&
     css`
       color: var(--color-text);
     `}
@@ -152,15 +152,74 @@ export const TotalPages = styled.p`
   }
 `;
 
-export const ReadList = styled.ul``;
+export const ReadList = styled.ul`
+  display: flex;
+  flex-direction: column;
+  gap: 1.125rem;
 
-export const ReadItem = styled.li``;
-
-export const ReadSvg = styled.svg`
-  width: 3.75rem;
-  height: 1.5625rem;
+  @media screen and (min-width: 1440px) {
+    gap: 1.75rem;
+  }
 `;
 
+export const ReadItem = styled.li`
+  display: flex;
+  justify-content: space-between;
+`;
+
+export const PagesLeft = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+`;
+
+export const PagesPercentage = styled.p`
+  font-size: 0.875rem;
+  line-height: 1.29;
+  letter-spacing: -0.02em;
+
+  @media screen and (min-width: 768px) {
+    font-size: 1.25rem;
+    line-height: 1;
+  }
+`;
+
+export const PagesMinutes = styled.p`
+  font-size: 0.625rem;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--color-text-dark);
+
+  @media screen and (min-width: 768px) {
+    font-size: 0.75rem;
+    line-height: 1.17;
+  }
+`;
+
+export const PagesRight = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.4375rem;
+`;
+
+export const PagesGraph = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  @media screen and (min-width: 768px) {
+    gap: 0.5rem;
+  }
+`;
+
+export const ReadSvg = styled.svg`
+  width: 2.75rem;
+  height: 1.125rem;
+
+  @media screen and (min-width: 768px) {
+    width: 3.75rem;
+    height: 1.5625rem;
+  }
+`;
 export const DeleteBtn = styled(SvgBtn)`
   width: 0.875rem;
   height: 0.875rem;
@@ -169,5 +228,22 @@ export const DeleteBtn = styled(SvgBtn)`
 
   &:hover {
     transform: rotate(10deg) scale(1.05);
+  }
+`;
+
+export const PagesPerHour = styled.p`
+  width: 2.75rem;
+
+  font-size: 0.625rem;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  text-align: center;
+  color: var(--color-text-dark);
+
+  @media screen and (min-width: 768px) {
+    width: 3.75rem;
+
+    font-size: 0.75rem;
+    line-height: 1.17;
   }
 `;
