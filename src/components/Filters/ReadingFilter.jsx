@@ -52,7 +52,6 @@ const ReadingFilter = () => {
         } else {
           if (+page === totalPages) {
             toggleModal();
-            console.log("123", 123);
           }
 
           bookInfo.status === "active"

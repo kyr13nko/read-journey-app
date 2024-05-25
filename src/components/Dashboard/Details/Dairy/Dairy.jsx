@@ -3,6 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectReadBook } from "../../../../store/books/booksSelectors";
 import { getReadBookDelete } from "../../../../store/books/booksOperations";
 
+import { convertDate } from "../../../../helpers/convertDate";
+import { getPercentage } from "../../../../helpers/getPercentage";
+import { getReadingTime } from "../../../../helpers/getReadingTime";
+
 import sprite from "../../../../assets/images/sprite.svg";
 import {
   DairyWrapper,
@@ -23,8 +27,7 @@ import {
   PagesMinutes,
   PagesTotal,
 } from "./Dairy.styled";
-import { convertDate } from "../../../../helpers/convertDate";
-import { getPercentage } from "../../../../helpers/getPercentage";
+import { getPagesPerHour } from "../../../../helpers/getPagesPerHour";
 
 const Dairy = () => {
   const dispatch = useDispatch();
@@ -64,31 +67,40 @@ const Dairy = () => {
                 <TotalPages>{totalReadPages ? `${totalReadPages} pages` : `Reading...`}</TotalPages>
               </PagesTotal>
               <ReadList>
-                {books.reverse().map(({ _id, startPage, finishPage }) => (
-                  <ReadItem key={_id}>
-                    <PagesLeft>
-                      <PagesPercentage>
-                        {finishPage
-                          ? `${getPercentage(startPage, finishPage + 1, readBook.totalPages)}%`
-                          : `Reading...`}
-                      </PagesPercentage>
-                      {finishPage && <PagesMinutes>{}minutes</PagesMinutes>}
-                    </PagesLeft>
-                    <PagesRight>
-                      <PagesGraph>
-                        <ReadSvg>
-                          <use href={`${sprite}#block`} />
-                        </ReadSvg>
-                        <DeleteBtn type="button" onClick={() => handleDelBtnClick(_id)}>
-                          <svg>
-                            <use href={`${sprite}#trash`} />
-                          </svg>
-                        </DeleteBtn>
-                      </PagesGraph>
-                      {finishPage && <PagesPerHour>pages per hour</PagesPerHour>}
-                    </PagesRight>
-                  </ReadItem>
-                ))}
+                {books
+                  .reverse()
+                  .map(({ _id, startPage, finishPage, startReading, finishReading }) => (
+                    <ReadItem key={_id}>
+                      <PagesLeft>
+                        <PagesPercentage>
+                          {finishPage
+                            ? `${getPercentage(startPage, finishPage + 1, readBook.totalPages)}%`
+                            : `Reading...`}
+                        </PagesPercentage>
+                        {finishPage && (
+                          <PagesMinutes>{getReadingTime(startReading, finishReading)}</PagesMinutes>
+                        )}
+                      </PagesLeft>
+                      <PagesRight>
+                        <PagesGraph>
+                          <ReadSvg>
+                            <use href={`${sprite}#block`} />
+                          </ReadSvg>
+                          <DeleteBtn type="button" onClick={() => handleDelBtnClick(_id)}>
+                            <svg>
+                              <use href={`${sprite}#trash`} />
+                            </svg>
+                          </DeleteBtn>
+                        </PagesGraph>
+                        {finishPage && (
+                          <PagesPerHour>
+                            {getPagesPerHour(startPage, finishPage, startReading, finishReading)}
+                            &#32;pages per hour
+                          </PagesPerHour>
+                        )}
+                      </PagesRight>
+                    </ReadItem>
+                  ))}
               </ReadList>
             </DateContent>
           ))}

@@ -62,7 +62,7 @@ const AddBookFilter = () => {
   return (
     <>
       <FilterWrapper>
-        <Title>Filters:</Title>
+        <Title>Create your library:</Title>
         <Form onSubmit={handleSubmit}>
           <Wrapper>
             <InputWrapper>
