@@ -1,5 +1,7 @@
 import { useDispatch } from "react-redux";
+
 import { logout } from "../../../store/auth/authOperations";
+
 import { LogoutBurgerButton, LogoutNavButton } from "./LogoutBtn.styled";
 
 const LogoutBtn = ({ styleType }) => {

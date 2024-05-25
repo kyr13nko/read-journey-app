@@ -3,10 +3,12 @@ import { useDispatch } from "react-redux";
 
 import { useFormik } from "formik";
 
-import { loginSchema } from "../../helpers/schemas";
 import { login } from "../../store/auth/authOperations";
 
+import { loginSchema } from "../../helpers/schemas";
+
 import sprite from "../../assets/images/sprite.svg";
+
 import {
   Button,
   ButtonWrapper,

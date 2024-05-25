@@ -1,17 +1,17 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { selectReadBook } from "../../store/books/booksSelectors";
-import { getReadBookStart, getReadBookFinish } from "../../store/books/booksOperations";
-import { getBookStatusAndProgress } from "../../helpers/getBookProgress";
+import { useFormik } from "formik";
+import { toast } from "react-toastify";
 
 import Modal from "../Modal/Modal";
 import Success from "../Success/Success";
 
-import { useFormik } from "formik";
-import { addPageFilterSchema } from "../../helpers/schemas";
+import { selectReadBook } from "../../store/books/booksSelectors";
+import { getReadBookStart, getReadBookFinish } from "../../store/books/booksOperations";
 
-import { toast } from "react-toastify";
+import { getBookStatusAndProgress } from "../../helpers/getBookProgress";
+import { addPageFilterSchema } from "../../helpers/schemas";
 
 import sprite from "../../assets/images/sprite.svg";
 import {

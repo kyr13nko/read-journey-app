@@ -1,6 +1,7 @@
 import { ReadingWrapper, Title } from "../Dashboard.styled";
 
 import starPng from "../../../assets/images/star.png";
+
 import { ImageWrapper, Text } from "./Progress.styled";
 
 const Progress = () => {

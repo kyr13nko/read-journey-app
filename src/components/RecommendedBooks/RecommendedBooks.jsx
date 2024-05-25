@@ -3,13 +3,13 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { useMediaQuery } from "react-responsive";
 
-import { getOwnBooks, getRecommendedBooks } from "../../store/books/booksOperations";
-import { selectCurrentPage, selectRecommendedBooks } from "../../store/books/booksSelectors";
-import { getLimit } from "../../helpers/getLimit";
-
 import RecommendedCard from "./RecommendedCard/RecommendedCard";
 import Pagination from "./Pagination/Pagination";
 import NoResults from "../NoResults/NoResults";
+
+import { getOwnBooks, getRecommendedBooks } from "../../store/books/booksOperations";
+import { selectCurrentPage, selectRecommendedBooks } from "../../store/books/booksSelectors";
+import { getLimit } from "../../helpers/getLimit";
 
 import { BookList, BookWrapper } from "../../styles/GlobalStyles";
 

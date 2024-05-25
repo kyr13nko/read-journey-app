@@ -6,6 +6,7 @@ import { getReadBookDelete } from "../../../../store/books/booksOperations";
 import { convertDate } from "../../../../helpers/convertDate";
 import { getPercentage } from "../../../../helpers/getPercentage";
 import { getReadingTime } from "../../../../helpers/getReadingTime";
+import { getPagesPerHour } from "../../../../helpers/getPagesPerHour";
 
 import sprite from "../../../../assets/images/sprite.svg";
 import {
@@ -27,7 +28,6 @@ import {
   PagesMinutes,
   PagesTotal,
 } from "./Dairy.styled";
-import { getPagesPerHour } from "../../../../helpers/getPagesPerHour";
 
 const Dairy = () => {
   const dispatch = useDispatch();

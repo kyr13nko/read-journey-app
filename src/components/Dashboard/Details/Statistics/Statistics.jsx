@@ -1,4 +1,6 @@
-// import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+
+import { selectReadBook } from "../../../../store/books/booksSelectors";
 
 import {
   Circle,
@@ -10,8 +12,6 @@ import {
   PercentageCircle,
   StatisticsWrapper,
 } from "./Statistics.styled";
-import { useSelector } from "react-redux";
-import { selectReadBook } from "../../../../store/books/booksSelectors";
 
 const Statistics = () => {
   const readBook = useSelector(selectReadBook);

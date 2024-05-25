@@ -2,12 +2,13 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
+import NoResults from "../../NoResults/NoResults";
+
 import { selectRecommendedBooks } from "../../../store/books/booksSelectors";
 import { getRecommendedBooks } from "../../../store/books/booksOperations";
 
-import NoResults from "../../NoResults/NoResults";
-
 import sprite from "../../../assets/images/sprite.svg";
+
 import { BlockWrapper, Card, List } from "./RecommendedBooks.styled";
 import { LinkWrapper, StyledLink, Title } from "../Dashboard.styled";
 

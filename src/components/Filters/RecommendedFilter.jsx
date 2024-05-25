@@ -1,13 +1,13 @@
 import { useDispatch } from "react-redux";
 import { useState } from "react";
 
+import { useMediaQuery } from "react-responsive";
+import { useFormik } from "formik";
 import { toast } from "react-toastify";
 
-import { useMediaQuery } from "react-responsive";
 import { getRecommendedBooks } from "../../store/books/booksOperations";
 import { getLimit } from "../../helpers/getLimit";
 
-import { useFormik } from "formik";
 import { recommendedFilterSchema } from "../../helpers/schemas";
 
 import {

@@ -2,13 +2,14 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
-import { delBookById, getReadBook } from "../../../store/books/booksOperations";
-
 import Modal from "../../Modal/Modal";
+
+import { delBookById, getReadBook } from "../../../store/books/booksOperations";
 
 import sprite from "../../../assets/images/sprite.svg";
 import imageUrlPlaceholder from "../../../assets/images/imageUrl.png";
 
+import { BookCardWrapper, DeleteBtn } from "./MyLibraryCard.styled";
 import {
   BookCard,
   BookCardContent,
@@ -16,7 +17,6 @@ import {
   ModalBookCard,
   ModalBookContent,
 } from "../../../styles/GlobalStyles";
-import { BookCardWrapper, DeleteBtn } from "./MyLibraryCard.styled";
 
 const MyLibraryCard = ({ book }) => {
   const dispatch = useDispatch();

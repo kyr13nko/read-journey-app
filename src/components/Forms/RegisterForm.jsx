@@ -3,8 +3,9 @@ import { useDispatch } from "react-redux";
 
 import { useFormik } from "formik";
 
-import { registerSchema } from "../../helpers/schemas";
 import { register } from "../../store/auth/authOperations";
+
+import { registerSchema } from "../../helpers/schemas";
 
 import sprite from "../../assets/images/sprite.svg";
 import {

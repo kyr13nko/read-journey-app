@@ -1,13 +1,15 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
+import { useFormik } from "formik";
+import { toast } from "react-toastify";
+
 import Modal from "../Modal/Modal";
 import Success from "../Success/Success";
 
 import { addBook } from "../../store/books/booksOperations";
 import { selectOwnBooks } from "../../store/books/booksSelectors";
 
-import { useFormik } from "formik";
 import { addBookFilterSchema } from "../../helpers/schemas";
 
 import sprite from "../../assets/images/sprite.svg";
@@ -21,7 +23,6 @@ import {
   Title,
   Wrapper,
 } from "./Filters.styled";
-import { toast } from "react-toastify";
 import { ErrorMessage, MessageSvg, SuccessMessage } from "../../styles/GlobalStyles";
 
 const AddBookFilter = () => {

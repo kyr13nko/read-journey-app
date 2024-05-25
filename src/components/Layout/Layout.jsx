@@ -1,10 +1,10 @@
 import { Suspense } from "react";
 import { Outlet } from "react-router-dom";
 
-import { useAuth } from "../../hooks/useAuth";
-
 import Header from "../Header/Header";
 import Loader from "../Loader/Loader";
+
+import { useAuth } from "../../hooks/useAuth";
 
 import { Container, Section } from "../../styles/GlobalStyles";
 
